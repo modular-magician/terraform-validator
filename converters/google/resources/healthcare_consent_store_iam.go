@@ -114,7 +114,7 @@ func FetchHealthcareConsentStoreIamPolicy(d TerraformResourceData, config *Confi
 		HealthcareConsentStoreIamUpdaterProducer,
 		d,
 		config,
-		"//healthcare.googleapis.com/{{consentstore}}",
+		assetName("//healthcare.googleapis.com/{{consentstore}}"),
 		HealthcareConsentStoreIAMAssetType,
 	)
 }

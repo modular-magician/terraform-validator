@@ -36,7 +36,7 @@ func GetApigeeOrganizationCaiObject(d TerraformResourceData, config *Config) ([]
 			Type: ApigeeOrganizationAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/apigee/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/apigee/v1/rest"),
 				DiscoveryName:        "Organization",
 				Data:                 obj,
 			},

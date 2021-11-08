@@ -58,7 +58,7 @@ func GetNotebooksInstanceCaiObject(d TerraformResourceData, config *Config) ([]A
 			Type: NotebooksInstanceAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/notebooks/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/notebooks/v1/rest"),
 				DiscoveryName:        "Instance",
 				Data:                 obj,
 			},

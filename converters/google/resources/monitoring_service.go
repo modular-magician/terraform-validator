@@ -36,7 +36,7 @@ func GetMonitoringServiceCaiObject(d TerraformResourceData, config *Config) ([]A
 			Type: MonitoringServiceAssetType,
 			Resource: &AssetResource{
 				Version:              "v3",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/monitoring/v3/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/monitoring/v3/rest"),
 				DiscoveryName:        "Service",
 				Data:                 obj,
 			},

@@ -36,7 +36,7 @@ func GetComputeNetworkPeeringRoutesConfigCaiObject(d TerraformResourceData, conf
 			Type: ComputeNetworkPeeringRoutesConfigAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/compute/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/compute/v1/rest"),
 				DiscoveryName:        "NetworkPeeringRoutesConfig",
 				Data:                 obj,
 			},

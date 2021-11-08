@@ -51,7 +51,7 @@ func GetGameServicesGameServerClusterCaiObject(d TerraformResourceData, config *
 			Type: GameServicesGameServerClusterAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/gameservices/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/gameservices/v1/rest"),
 				DiscoveryName:        "GameServerCluster",
 				Data:                 obj,
 			},

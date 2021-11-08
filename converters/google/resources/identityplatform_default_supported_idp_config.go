@@ -36,7 +36,7 @@ func GetIdentityPlatformDefaultSupportedIdpConfigCaiObject(d TerraformResourceDa
 			Type: IdentityPlatformDefaultSupportedIdpConfigAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/identitytoolkit/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/identitytoolkit/v2/rest"),
 				DiscoveryName:        "DefaultSupportedIdpConfig",
 				Data:                 obj,
 			},

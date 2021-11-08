@@ -41,7 +41,7 @@ func GetComputeResourcePolicyCaiObject(d TerraformResourceData, config *Config) 
 			Type: ComputeResourcePolicyAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/compute/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/compute/v1/rest"),
 				DiscoveryName:        "ResourcePolicy",
 				Data:                 obj,
 			},

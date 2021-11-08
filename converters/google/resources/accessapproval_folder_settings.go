@@ -67,7 +67,7 @@ func GetAccessApprovalFolderSettingsCaiObject(d TerraformResourceData, config *C
 			Type: AccessApprovalFolderSettingsAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/accessapproval/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/accessapproval/v1/rest"),
 				DiscoveryName:        "FolderSettings",
 				Data:                 obj,
 			},

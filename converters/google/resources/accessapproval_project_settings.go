@@ -40,7 +40,7 @@ func GetAccessApprovalProjectSettingsCaiObject(d TerraformResourceData, config *
 			Type: AccessApprovalProjectSettingsAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/accessapproval/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/accessapproval/v1/rest"),
 				DiscoveryName:        "ProjectSettings",
 				Data:                 obj,
 			},

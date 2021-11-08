@@ -36,7 +36,7 @@ func GetDataLossPreventionDeidentifyTemplateCaiObject(d TerraformResourceData, c
 			Type: DataLossPreventionDeidentifyTemplateAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/dlp/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/dlp/v2/rest"),
 				DiscoveryName:        "DeidentifyTemplate",
 				Data:                 obj,
 			},

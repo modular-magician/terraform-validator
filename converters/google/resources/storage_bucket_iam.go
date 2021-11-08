@@ -114,7 +114,7 @@ func FetchStorageBucketIamPolicy(d TerraformResourceData, config *Config) (Asset
 		StorageBucketIamUpdaterProducer,
 		d,
 		config,
-		"//storage.googleapis.com/{{bucket}}",
+		assetName("//storage.googleapis.com/{{bucket}}"),
 		StorageBucketIAMAssetType,
 	)
 }

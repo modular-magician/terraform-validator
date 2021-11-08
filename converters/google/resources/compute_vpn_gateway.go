@@ -39,7 +39,7 @@ func GetComputeVpnGatewayCaiObject(d TerraformResourceData, config *Config) ([]A
 			Type: ComputeVpnGatewayAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/compute/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/compute/v1/rest"),
 				DiscoveryName:        "VpnGateway",
 				Data:                 obj,
 			},

@@ -36,7 +36,7 @@ func GetDatastoreIndexCaiObject(d TerraformResourceData, config *Config) ([]Asse
 			Type: DatastoreIndexAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/datastore/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/datastore/v1/rest"),
 				DiscoveryName:        "Index",
 				Data:                 obj,
 			},

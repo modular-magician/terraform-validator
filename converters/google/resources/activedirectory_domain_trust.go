@@ -40,7 +40,7 @@ func GetActiveDirectoryDomainTrustCaiObject(d TerraformResourceData, config *Con
 			Type: ActiveDirectoryDomainTrustAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/managedidentities/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/managedidentities/v1/rest"),
 				DiscoveryName:        "DomainTrust",
 				Data:                 obj,
 			},

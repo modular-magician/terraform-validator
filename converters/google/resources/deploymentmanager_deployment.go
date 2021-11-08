@@ -67,7 +67,7 @@ func GetDeploymentManagerDeploymentCaiObject(d TerraformResourceData, config *Co
 			Type: DeploymentManagerDeploymentAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/www/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/www/v2/rest"),
 				DiscoveryName:        "Deployment",
 				Data:                 obj,
 			},

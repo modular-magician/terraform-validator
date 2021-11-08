@@ -36,7 +36,7 @@ func GetEssentialContactsContactCaiObject(d TerraformResourceData, config *Confi
 			Type: EssentialContactsContactAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/essentialcontacts/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/essentialcontacts/v1/rest"),
 				DiscoveryName:        "Contact",
 				Data:                 obj,
 			},

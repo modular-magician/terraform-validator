@@ -49,7 +49,7 @@ func GetCloudTasksQueueCaiObject(d TerraformResourceData, config *Config) ([]Ass
 			Type: CloudTasksQueueAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/cloudtasks/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/cloudtasks/v2/rest"),
 				DiscoveryName:        "Queue",
 				Data:                 obj,
 			},

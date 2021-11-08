@@ -39,7 +39,7 @@ func GetSQLSourceRepresentationInstanceCaiObject(d TerraformResourceData, config
 			Type: SQLSourceRepresentationInstanceAssetType,
 			Resource: &AssetResource{
 				Version:              "v1beta4",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest"),
 				DiscoveryName:        "SourceRepresentationInstance",
 				Data:                 obj,
 			},

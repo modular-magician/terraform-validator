@@ -114,7 +114,7 @@ func FetchNotebooksInstanceIamPolicy(d TerraformResourceData, config *Config) (A
 		NotebooksInstanceIamUpdaterProducer,
 		d,
 		config,
-		"//notebooks.googleapis.com/{{instance}}",
+		assetName("//notebooks.googleapis.com/{{instance}}"),
 		NotebooksInstanceIAMAssetType,
 	)
 }

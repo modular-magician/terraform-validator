@@ -285,7 +285,7 @@ func GetCloudIotDeviceRegistryCaiObject(d TerraformResourceData, config *Config)
 			Type: CloudIotDeviceRegistryAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/cloudiot/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/cloudiot/v1/rest"),
 				DiscoveryName:        "DeviceRegistry",
 				Data:                 obj,
 			},

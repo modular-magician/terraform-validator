@@ -36,7 +36,7 @@ func GetOSConfigPatchDeploymentCaiObject(d TerraformResourceData, config *Config
 			Type: OSConfigPatchDeploymentAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/osconfig/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/osconfig/v1/rest"),
 				DiscoveryName:        "PatchDeployment",
 				Data:                 obj,
 			},

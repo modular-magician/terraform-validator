@@ -36,7 +36,7 @@ func GetHealthcareConsentStoreCaiObject(d TerraformResourceData, config *Config)
 			Type: HealthcareConsentStoreAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/healthcare/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/healthcare/v1/rest"),
 				DiscoveryName:        "ConsentStore",
 				Data:                 obj,
 			},

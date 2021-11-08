@@ -36,7 +36,7 @@ func GetSQLDatabaseCaiObject(d TerraformResourceData, config *Config) ([]Asset, 
 			Type: SQLDatabaseAssetType,
 			Resource: &AssetResource{
 				Version:              "v1beta4",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest"),
 				DiscoveryName:        "Database",
 				Data:                 obj,
 			},

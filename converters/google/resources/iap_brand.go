@@ -36,7 +36,7 @@ func GetIapBrandCaiObject(d TerraformResourceData, config *Config) ([]Asset, err
 			Type: IapBrandAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/iap/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/iap/v1/rest"),
 				DiscoveryName:        "Brand",
 				Data:                 obj,
 			},

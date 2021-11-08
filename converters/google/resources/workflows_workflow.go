@@ -41,7 +41,7 @@ func GetWorkflowsWorkflowCaiObject(d TerraformResourceData, config *Config) ([]A
 			Type: WorkflowsWorkflowAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/workflows/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/workflows/v1/rest"),
 				DiscoveryName:        "Workflow",
 				Data:                 obj,
 			},

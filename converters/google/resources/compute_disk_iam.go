@@ -114,7 +114,7 @@ func FetchComputeDiskIamPolicy(d TerraformResourceData, config *Config) (Asset, 
 		ComputeDiskIamUpdaterProducer,
 		d,
 		config,
-		"//compute.googleapis.com/{{disk}}",
+		assetName("//compute.googleapis.com/{{disk}}"),
 		ComputeDiskIAMAssetType,
 	)
 }

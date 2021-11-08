@@ -36,7 +36,7 @@ func GetIdentityPlatformTenantCaiObject(d TerraformResourceData, config *Config)
 			Type: IdentityPlatformTenantAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/identitytoolkit/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/identitytoolkit/v2/rest"),
 				DiscoveryName:        "Tenant",
 				Data:                 obj,
 			},

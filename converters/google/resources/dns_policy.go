@@ -41,7 +41,7 @@ func GetDNSPolicyCaiObject(d TerraformResourceData, config *Config) ([]Asset, er
 			Type: DNSPolicyAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/dns/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/dns/v1/rest"),
 				DiscoveryName:        "Policy",
 				Data:                 obj,
 			},

@@ -114,7 +114,7 @@ func FetchPrivatecaCaPoolIamPolicy(d TerraformResourceData, config *Config) (Ass
 		PrivatecaCaPoolIamUpdaterProducer,
 		d,
 		config,
-		"//privateca.googleapis.com/{{capool}}",
+		assetName("//privateca.googleapis.com/{{capool}}"),
 		PrivatecaCaPoolIAMAssetType,
 	)
 }

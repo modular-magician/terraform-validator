@@ -36,7 +36,7 @@ func GetMonitoringUptimeCheckConfigCaiObject(d TerraformResourceData, config *Co
 			Type: MonitoringUptimeCheckConfigAssetType,
 			Resource: &AssetResource{
 				Version:              "v3",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/monitoring/v3/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/monitoring/v3/rest"),
 				DiscoveryName:        "UptimeCheckConfig",
 				Data:                 obj,
 			},

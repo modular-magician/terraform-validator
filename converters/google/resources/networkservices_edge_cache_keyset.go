@@ -36,7 +36,7 @@ func GetNetworkServicesEdgeCacheKeysetCaiObject(d TerraformResourceData, config 
 			Type: NetworkServicesEdgeCacheKeysetAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/networkservices/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/networkservices/v1/rest"),
 				DiscoveryName:        "EdgeCacheKeyset",
 				Data:                 obj,
 			},

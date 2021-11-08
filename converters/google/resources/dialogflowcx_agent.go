@@ -36,7 +36,7 @@ func GetDialogflowCXAgentCaiObject(d TerraformResourceData, config *Config) ([]A
 			Type: DialogflowCXAgentAssetType,
 			Resource: &AssetResource{
 				Version:              "v3",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/dialogflow/v3/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/dialogflow/v3/rest"),
 				DiscoveryName:        "Agent",
 				Data:                 obj,
 			},

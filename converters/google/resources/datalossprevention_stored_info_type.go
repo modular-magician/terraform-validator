@@ -36,7 +36,7 @@ func GetDataLossPreventionStoredInfoTypeCaiObject(d TerraformResourceData, confi
 			Type: DataLossPreventionStoredInfoTypeAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/dlp/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/dlp/v2/rest"),
 				DiscoveryName:        "StoredInfoType",
 				Data:                 obj,
 			},

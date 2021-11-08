@@ -40,7 +40,7 @@ func GetCloudAssetOrganizationFeedCaiObject(d TerraformResourceData, config *Con
 			Type: CloudAssetOrganizationFeedAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/cloudasset/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/cloudasset/v1/rest"),
 				DiscoveryName:        "OrganizationFeed",
 				Data:                 obj,
 			},

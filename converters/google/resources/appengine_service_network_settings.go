@@ -36,7 +36,7 @@ func GetAppEngineServiceNetworkSettingsCaiObject(d TerraformResourceData, config
 			Type: AppEngineServiceNetworkSettingsAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest"),
 				DiscoveryName:        "ServiceNetworkSettings",
 				Data:                 obj,
 			},

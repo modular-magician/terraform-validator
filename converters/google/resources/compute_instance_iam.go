@@ -114,7 +114,7 @@ func FetchComputeInstanceIamPolicy(d TerraformResourceData, config *Config) (Ass
 		ComputeInstanceIamUpdaterProducer,
 		d,
 		config,
-		"//compute.googleapis.com/{{instance}}",
+		assetName("//compute.googleapis.com/{{instance}}"),
 		ComputeInstanceIAMAssetType,
 	)
 }

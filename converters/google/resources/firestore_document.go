@@ -39,7 +39,7 @@ func GetFirestoreDocumentCaiObject(d TerraformResourceData, config *Config) ([]A
 			Type: FirestoreDocumentAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/firestore/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/firestore/v1/rest"),
 				DiscoveryName:        "Document",
 				Data:                 obj,
 			},

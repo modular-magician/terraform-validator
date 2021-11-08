@@ -114,7 +114,7 @@ func FetchDataCatalogTagTemplateIamPolicy(d TerraformResourceData, config *Confi
 		DataCatalogTagTemplateIamUpdaterProducer,
 		d,
 		config,
-		"//datacatalog.googleapis.com/{{tagtemplate}}",
+		assetName("//datacatalog.googleapis.com/{{tagtemplate}}"),
 		DataCatalogTagTemplateIAMAssetType,
 	)
 }

@@ -114,7 +114,7 @@ func FetchComputeImageIamPolicy(d TerraformResourceData, config *Config) (Asset,
 		ComputeImageIamUpdaterProducer,
 		d,
 		config,
-		"//compute.googleapis.com/{{image}}",
+		assetName("//compute.googleapis.com/{{image}}"),
 		ComputeImageIAMAssetType,
 	)
 }

@@ -112,7 +112,7 @@ func GetCloudSchedulerJobCaiObject(d TerraformResourceData, config *Config) ([]A
 			Type: CloudSchedulerJobAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/cloudscheduler/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/cloudscheduler/v1/rest"),
 				DiscoveryName:        "Job",
 				Data:                 obj,
 			},

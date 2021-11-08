@@ -91,7 +91,7 @@ func GetTPUNodeCaiObject(d TerraformResourceData, config *Config) ([]Asset, erro
 			Type: TPUNodeAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/tpu/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/tpu/v1/rest"),
 				DiscoveryName:        "Node",
 				Data:                 obj,
 			},

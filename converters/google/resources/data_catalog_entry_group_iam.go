@@ -114,7 +114,7 @@ func FetchDataCatalogEntryGroupIamPolicy(d TerraformResourceData, config *Config
 		DataCatalogEntryGroupIamUpdaterProducer,
 		d,
 		config,
-		"//datacatalog.googleapis.com/{{entrygroup}}",
+		assetName("//datacatalog.googleapis.com/{{entrygroup}}"),
 		DataCatalogEntryGroupIAMAssetType,
 	)
 }

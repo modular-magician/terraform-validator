@@ -36,7 +36,7 @@ func GetVertexAIDatasetCaiObject(d TerraformResourceData, config *Config) ([]Ass
 			Type: VertexAIDatasetAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/{{region}}-aiplatform/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/{{region}}-aiplatform/v1/rest"),
 				DiscoveryName:        "Dataset",
 				Data:                 obj,
 			},

@@ -36,7 +36,7 @@ func GetKMSKeyRingCaiObject(d TerraformResourceData, config *Config) ([]Asset, e
 			Type: KMSKeyRingAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/cloudkms/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/cloudkms/v1/rest"),
 				DiscoveryName:        "KeyRing",
 				Data:                 obj,
 			},

@@ -36,7 +36,7 @@ func GetSecurityCenterNotificationConfigCaiObject(d TerraformResourceData, confi
 			Type: SecurityCenterNotificationConfigAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/securitycenter/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/securitycenter/v1/rest"),
 				DiscoveryName:        "NotificationConfig",
 				Data:                 obj,
 			},

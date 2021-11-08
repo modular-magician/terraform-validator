@@ -36,7 +36,7 @@ func GetDataLossPreventionJobTriggerCaiObject(d TerraformResourceData, config *C
 			Type: DataLossPreventionJobTriggerAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/dlp/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/dlp/v2/rest"),
 				DiscoveryName:        "JobTrigger",
 				Data:                 obj,
 			},

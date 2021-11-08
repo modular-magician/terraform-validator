@@ -36,7 +36,7 @@ func GetAppEngineServiceSplitTrafficCaiObject(d TerraformResourceData, config *C
 			Type: AppEngineServiceSplitTrafficAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest"),
 				DiscoveryName:        "ServiceSplitTraffic",
 				Data:                 obj,
 			},

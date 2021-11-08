@@ -51,7 +51,7 @@ func GetGKEHubMembershipCaiObject(d TerraformResourceData, config *Config) ([]As
 			Type: GKEHubMembershipAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/gkehub/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/gkehub/v1/rest"),
 				DiscoveryName:        "Membership",
 				Data:                 obj,
 			},

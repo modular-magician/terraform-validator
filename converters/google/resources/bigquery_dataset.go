@@ -68,7 +68,7 @@ func GetBigQueryDatasetCaiObject(d TerraformResourceData, config *Config) ([]Ass
 			Type: BigQueryDatasetAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/bigquery/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/bigquery/v2/rest"),
 				DiscoveryName:        "Dataset",
 				Data:                 obj,
 			},

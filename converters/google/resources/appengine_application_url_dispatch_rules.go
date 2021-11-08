@@ -36,7 +36,7 @@ func GetAppEngineApplicationUrlDispatchRulesCaiObject(d TerraformResourceData, c
 			Type: AppEngineApplicationUrlDispatchRulesAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest"),
 				DiscoveryName:        "ApplicationUrlDispatchRules",
 				Data:                 obj,
 			},

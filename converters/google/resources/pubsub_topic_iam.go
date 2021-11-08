@@ -114,7 +114,7 @@ func FetchPubsubTopicIamPolicy(d TerraformResourceData, config *Config) (Asset, 
 		PubsubTopicIamUpdaterProducer,
 		d,
 		config,
-		"//pubsub.googleapis.com/{{topic}}",
+		assetName("//pubsub.googleapis.com/{{topic}}"),
 		PubsubTopicIAMAssetType,
 	)
 }

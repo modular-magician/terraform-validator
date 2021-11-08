@@ -36,7 +36,7 @@ func GetIdentityPlatformOauthIdpConfigCaiObject(d TerraformResourceData, config 
 			Type: IdentityPlatformOauthIdpConfigAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/identitytoolkit/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/identitytoolkit/v2/rest"),
 				DiscoveryName:        "OauthIdpConfig",
 				Data:                 obj,
 			},

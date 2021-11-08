@@ -36,7 +36,7 @@ func GetAccessContextManagerAccessLevelCaiObject(d TerraformResourceData, config
 			Type: AccessContextManagerAccessLevelAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/accesscontextmanager/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/accesscontextmanager/v1/rest"),
 				DiscoveryName:        "AccessLevel",
 				Data:                 obj,
 			},

@@ -40,7 +40,7 @@ func GetContainerAnalysisOccurrenceCaiObject(d TerraformResourceData, config *Co
 			Type: ContainerAnalysisOccurrenceAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/containeranalysis/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/containeranalysis/v1/rest"),
 				DiscoveryName:        "Occurrence",
 				Data:                 obj,
 			},

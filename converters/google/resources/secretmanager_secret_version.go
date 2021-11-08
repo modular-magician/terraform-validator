@@ -41,7 +41,7 @@ func GetSecretManagerSecretVersionCaiObject(d TerraformResourceData, config *Con
 			Type: SecretManagerSecretVersionAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/secretmanager/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/secretmanager/v1/rest"),
 				DiscoveryName:        "SecretVersion",
 				Data:                 obj,
 			},

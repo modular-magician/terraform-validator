@@ -36,7 +36,7 @@ func GetNetworkServicesEdgeCacheServiceCaiObject(d TerraformResourceData, config
 			Type: NetworkServicesEdgeCacheServiceAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/networkservices/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/networkservices/v1/rest"),
 				DiscoveryName:        "EdgeCacheService",
 				Data:                 obj,
 			},

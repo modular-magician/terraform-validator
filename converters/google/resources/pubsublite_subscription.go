@@ -40,7 +40,7 @@ func GetPubsubLiteSubscriptionCaiObject(d TerraformResourceData, config *Config)
 			Type: PubsubLiteSubscriptionAssetType,
 			Resource: &AssetResource{
 				Version:              "admin",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/{{region}}-pubsublite/admin/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/{{region}}-pubsublite/admin/rest"),
 				DiscoveryName:        "Subscription",
 				Data:                 obj,
 			},

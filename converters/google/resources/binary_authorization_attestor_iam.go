@@ -114,7 +114,7 @@ func FetchBinaryAuthorizationAttestorIamPolicy(d TerraformResourceData, config *
 		BinaryAuthorizationAttestorIamUpdaterProducer,
 		d,
 		config,
-		"//binaryauthorization.googleapis.com/{{attestor}}",
+		assetName("//binaryauthorization.googleapis.com/{{attestor}}"),
 		BinaryAuthorizationAttestorIAMAssetType,
 	)
 }

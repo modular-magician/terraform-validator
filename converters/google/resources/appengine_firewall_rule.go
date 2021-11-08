@@ -36,7 +36,7 @@ func GetAppEngineFirewallRuleCaiObject(d TerraformResourceData, config *Config) 
 			Type: AppEngineFirewallRuleAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest"),
 				DiscoveryName:        "FirewallRule",
 				Data:                 obj,
 			},

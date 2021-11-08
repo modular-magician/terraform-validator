@@ -114,7 +114,7 @@ func FetchServiceManagementServiceIamPolicy(d TerraformResourceData, config *Con
 		ServiceManagementServiceIamUpdaterProducer,
 		d,
 		config,
-		"//servicemanagement.googleapis.com/{{service}}",
+		assetName("//servicemanagement.googleapis.com/{{service}}"),
 		ServiceManagementServiceIAMAssetType,
 	)
 }

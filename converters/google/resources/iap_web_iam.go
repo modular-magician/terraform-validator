@@ -114,7 +114,7 @@ func FetchIapWebIamPolicy(d TerraformResourceData, config *Config) (Asset, error
 		IapWebIamUpdaterProducer,
 		d,
 		config,
-		"//iap.googleapis.com/{{web}}",
+		assetName("//iap.googleapis.com/{{web}}"),
 		IapWebIAMAssetType,
 	)
 }

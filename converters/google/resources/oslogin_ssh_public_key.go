@@ -36,7 +36,7 @@ func GetOSLoginSSHPublicKeyCaiObject(d TerraformResourceData, config *Config) ([
 			Type: OSLoginSSHPublicKeyAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/oslogin/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/oslogin/v1/rest"),
 				DiscoveryName:        "SSHPublicKey",
 				Data:                 obj,
 			},

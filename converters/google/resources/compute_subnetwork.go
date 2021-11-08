@@ -64,7 +64,7 @@ func GetComputeSubnetworkCaiObject(d TerraformResourceData, config *Config) ([]A
 			Type: ComputeSubnetworkAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/compute/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/compute/v1/rest"),
 				DiscoveryName:        "Subnetwork",
 				Data:                 obj,
 			},

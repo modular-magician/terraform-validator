@@ -114,7 +114,7 @@ func FetchComputeSubnetworkIamPolicy(d TerraformResourceData, config *Config) (A
 		ComputeSubnetworkIamUpdaterProducer,
 		d,
 		config,
-		"//compute.googleapis.com/{{subnetwork}}",
+		assetName("//compute.googleapis.com/{{subnetwork}}"),
 		ComputeSubnetworkIAMAssetType,
 	)
 }

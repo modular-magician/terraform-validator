@@ -36,7 +36,7 @@ func GetPubsubLiteReservationCaiObject(d TerraformResourceData, config *Config) 
 			Type: PubsubLiteReservationAssetType,
 			Resource: &AssetResource{
 				Version:              "admin",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/{{region}}-pubsublite/admin/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/{{region}}-pubsublite/admin/rest"),
 				DiscoveryName:        "Reservation",
 				Data:                 obj,
 			},

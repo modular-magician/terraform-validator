@@ -36,7 +36,7 @@ func GetIapClientCaiObject(d TerraformResourceData, config *Config) ([]Asset, er
 			Type: IapClientAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/iap/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/iap/v1/rest"),
 				DiscoveryName:        "Client",
 				Data:                 obj,
 			},

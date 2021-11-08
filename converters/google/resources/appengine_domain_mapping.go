@@ -54,7 +54,7 @@ func GetAppEngineDomainMappingCaiObject(d TerraformResourceData, config *Config)
 			Type: AppEngineDomainMappingAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest"),
 				DiscoveryName:        "DomainMapping",
 				Data:                 obj,
 			},

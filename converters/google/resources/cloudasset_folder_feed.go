@@ -40,7 +40,7 @@ func GetCloudAssetFolderFeedCaiObject(d TerraformResourceData, config *Config) (
 			Type: CloudAssetFolderFeedAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/cloudasset/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/cloudasset/v1/rest"),
 				DiscoveryName:        "FolderFeed",
 				Data:                 obj,
 			},

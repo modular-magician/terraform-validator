@@ -36,7 +36,7 @@ func GetPubsubSchemaCaiObject(d TerraformResourceData, config *Config) ([]Asset,
 			Type: PubsubSchemaAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/pubsub/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/pubsub/v1/rest"),
 				DiscoveryName:        "Schema",
 				Data:                 obj,
 			},

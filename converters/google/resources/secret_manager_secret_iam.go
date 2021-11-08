@@ -114,7 +114,7 @@ func FetchSecretManagerSecretIamPolicy(d TerraformResourceData, config *Config) 
 		SecretManagerSecretIamUpdaterProducer,
 		d,
 		config,
-		"//secretmanager.googleapis.com/{{secret}}",
+		assetName("//secretmanager.googleapis.com/{{secret}}"),
 		SecretManagerSecretIAMAssetType,
 	)
 }

@@ -36,7 +36,7 @@ func GetDialogflowFulfillmentCaiObject(d TerraformResourceData, config *Config) 
 			Type: DialogflowFulfillmentAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/dialogflow/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/dialogflow/v2/rest"),
 				DiscoveryName:        "Fulfillment",
 				Data:                 obj,
 			},

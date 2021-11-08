@@ -41,7 +41,7 @@ func GetComputeRouteCaiObject(d TerraformResourceData, config *Config) ([]Asset,
 			Type: ComputeRouteAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/compute/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/compute/v1/rest"),
 				DiscoveryName:        "Route",
 				Data:                 obj,
 			},

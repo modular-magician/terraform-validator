@@ -114,7 +114,7 @@ func FetchBigQueryTableIamPolicy(d TerraformResourceData, config *Config) (Asset
 		BigQueryTableIamUpdaterProducer,
 		d,
 		config,
-		"//bigquery.googleapis.com/{{table}}",
+		assetName("//bigquery.googleapis.com/{{table}}"),
 		BigQueryTableIAMAssetType,
 	)
 }

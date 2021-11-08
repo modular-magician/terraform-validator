@@ -79,7 +79,7 @@ func GetFirestoreIndexCaiObject(d TerraformResourceData, config *Config) ([]Asse
 			Type: FirestoreIndexAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/firestore/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/firestore/v1/rest"),
 				DiscoveryName:        "Index",
 				Data:                 obj,
 			},

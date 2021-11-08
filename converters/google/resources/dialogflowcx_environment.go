@@ -36,7 +36,7 @@ func GetDialogflowCXEnvironmentCaiObject(d TerraformResourceData, config *Config
 			Type: DialogflowCXEnvironmentAssetType,
 			Resource: &AssetResource{
 				Version:              "v3",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/dialogflow/v3/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/dialogflow/v3/rest"),
 				DiscoveryName:        "Environment",
 				Data:                 obj,
 			},

@@ -41,7 +41,7 @@ func GetBigtableAppProfileCaiObject(d TerraformResourceData, config *Config) ([]
 			Type: BigtableAppProfileAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/bigtableadmin/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/bigtableadmin/v2/rest"),
 				DiscoveryName:        "AppProfile",
 				Data:                 obj,
 			},

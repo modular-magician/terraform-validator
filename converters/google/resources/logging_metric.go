@@ -40,7 +40,7 @@ func GetLoggingMetricCaiObject(d TerraformResourceData, config *Config) ([]Asset
 			Type: LoggingMetricAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/logging/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/logging/v2/rest"),
 				DiscoveryName:        "Metric",
 				Data:                 obj,
 			},

@@ -36,7 +36,7 @@ func GetDataprocAutoscalingPolicyCaiObject(d TerraformResourceData, config *Conf
 			Type: DataprocAutoscalingPolicyAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/dataproc/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/dataproc/v1/rest"),
 				DiscoveryName:        "AutoscalingPolicy",
 				Data:                 obj,
 			},

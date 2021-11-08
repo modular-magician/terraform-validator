@@ -63,7 +63,7 @@ func GetCloudRunDomainMappingCaiObject(d TerraformResourceData, config *Config) 
 			Type: CloudRunDomainMappingAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/{{location}}-run/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/{{location}}-run/v1/rest"),
 				DiscoveryName:        "DomainMapping",
 				Data:                 obj,
 			},

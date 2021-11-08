@@ -36,7 +36,7 @@ func GetCloudIdentityGroupCaiObject(d TerraformResourceData, config *Config) ([]
 			Type: CloudIdentityGroupAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/cloudidentity/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/cloudidentity/v1/rest"),
 				DiscoveryName:        "Group",
 				Data:                 obj,
 			},

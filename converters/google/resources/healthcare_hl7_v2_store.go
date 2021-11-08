@@ -39,7 +39,7 @@ func GetHealthcareHl7V2StoreCaiObject(d TerraformResourceData, config *Config) (
 			Type: HealthcareHl7V2StoreAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/healthcare/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/healthcare/v1/rest"),
 				DiscoveryName:        "Hl7V2Store",
 				Data:                 obj,
 			},

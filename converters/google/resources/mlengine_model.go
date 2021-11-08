@@ -36,7 +36,7 @@ func GetMLEngineModelCaiObject(d TerraformResourceData, config *Config) ([]Asset
 			Type: MLEngineModelAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/ml/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/ml/v1/rest"),
 				DiscoveryName:        "Model",
 				Data:                 obj,
 			},

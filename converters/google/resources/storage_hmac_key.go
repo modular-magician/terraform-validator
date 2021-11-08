@@ -36,7 +36,7 @@ func GetStorageHmacKeyCaiObject(d TerraformResourceData, config *Config) ([]Asse
 			Type: StorageHmacKeyAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/storage/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/storage/v1/rest"),
 				DiscoveryName:        "HmacKey",
 				Data:                 obj,
 			},

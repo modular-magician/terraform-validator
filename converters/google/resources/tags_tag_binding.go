@@ -36,7 +36,7 @@ func GetTagsTagBindingCaiObject(d TerraformResourceData, config *Config) ([]Asse
 			Type: TagsTagBindingAssetType,
 			Resource: &AssetResource{
 				Version:              "v3",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/cloudresourcemanager/v3/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/cloudresourcemanager/v3/rest"),
 				DiscoveryName:        "TagBinding",
 				Data:                 obj,
 			},

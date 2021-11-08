@@ -36,7 +36,7 @@ func GetBigqueryReservationReservationCaiObject(d TerraformResourceData, config 
 			Type: BigqueryReservationReservationAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/bigqueryreservation/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/bigqueryreservation/v1/rest"),
 				DiscoveryName:        "Reservation",
 				Data:                 obj,
 			},

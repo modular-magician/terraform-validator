@@ -36,7 +36,7 @@ func GetStorageDefaultObjectAccessControlCaiObject(d TerraformResourceData, conf
 			Type: StorageDefaultObjectAccessControlAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/storage/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/storage/v1/rest"),
 				DiscoveryName:        "DefaultObjectAccessControl",
 				Data:                 obj,
 			},

@@ -114,7 +114,7 @@ func FetchIapTunnelIamPolicy(d TerraformResourceData, config *Config) (Asset, er
 		IapTunnelIamUpdaterProducer,
 		d,
 		config,
-		"//iap.googleapis.com/{{tunnel}}",
+		assetName("//iap.googleapis.com/{{tunnel}}"),
 		IapTunnelIAMAssetType,
 	)
 }

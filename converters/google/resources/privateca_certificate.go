@@ -36,7 +36,7 @@ func GetPrivatecaCertificateCaiObject(d TerraformResourceData, config *Config) (
 			Type: PrivatecaCertificateAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/privateca/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/privateca/v1/rest"),
 				DiscoveryName:        "Certificate",
 				Data:                 obj,
 			},

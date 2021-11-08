@@ -41,7 +41,7 @@ func GetDNSManagedZoneCaiObject(d TerraformResourceData, config *Config) ([]Asse
 			Type: DNSManagedZoneAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/dns/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/dns/v1/rest"),
 				DiscoveryName:        "ManagedZone",
 				Data:                 obj,
 			},

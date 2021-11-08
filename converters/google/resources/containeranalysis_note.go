@@ -40,7 +40,7 @@ func GetContainerAnalysisNoteCaiObject(d TerraformResourceData, config *Config) 
 			Type: ContainerAnalysisNoteAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/containeranalysis/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/containeranalysis/v1/rest"),
 				DiscoveryName:        "Note",
 				Data:                 obj,
 			},

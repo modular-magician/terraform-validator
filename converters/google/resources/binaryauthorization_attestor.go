@@ -70,7 +70,7 @@ func GetBinaryAuthorizationAttestorCaiObject(d TerraformResourceData, config *Co
 			Type: BinaryAuthorizationAttestorAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/binaryauthorization/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/binaryauthorization/v1/rest"),
 				DiscoveryName:        "Attestor",
 				Data:                 obj,
 			},

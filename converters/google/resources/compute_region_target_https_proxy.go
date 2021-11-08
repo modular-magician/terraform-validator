@@ -39,7 +39,7 @@ func GetComputeRegionTargetHttpsProxyCaiObject(d TerraformResourceData, config *
 			Type: ComputeRegionTargetHttpsProxyAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/compute/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/compute/v1/rest"),
 				DiscoveryName:        "RegionTargetHttpsProxy",
 				Data:                 obj,
 			},

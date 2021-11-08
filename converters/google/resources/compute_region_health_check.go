@@ -39,7 +39,7 @@ func GetComputeRegionHealthCheckCaiObject(d TerraformResourceData, config *Confi
 			Type: ComputeRegionHealthCheckAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/compute/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/compute/v1/rest"),
 				DiscoveryName:        "RegionHealthCheck",
 				Data:                 obj,
 			},

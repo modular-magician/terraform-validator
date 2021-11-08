@@ -36,7 +36,7 @@ func GetCloudIotDeviceCaiObject(d TerraformResourceData, config *Config) ([]Asse
 			Type: CloudIotDeviceAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/cloudiot/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/cloudiot/v1/rest"),
 				DiscoveryName:        "Device",
 				Data:                 obj,
 			},

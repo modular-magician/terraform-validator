@@ -36,7 +36,7 @@ func GetDialogflowCXVersionCaiObject(d TerraformResourceData, config *Config) ([
 			Type: DialogflowCXVersionAssetType,
 			Resource: &AssetResource{
 				Version:              "v3",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/dialogflow/v3/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/dialogflow/v3/rest"),
 				DiscoveryName:        "Version",
 				Data:                 obj,
 			},

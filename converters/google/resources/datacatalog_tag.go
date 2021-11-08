@@ -40,7 +40,7 @@ func GetDataCatalogTagCaiObject(d TerraformResourceData, config *Config) ([]Asse
 			Type: DataCatalogTagAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/datacatalog/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/datacatalog/v1/rest"),
 				DiscoveryName:        "Tag",
 				Data:                 obj,
 			},

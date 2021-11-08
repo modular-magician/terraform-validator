@@ -39,7 +39,7 @@ func GetComputeReservationCaiObject(d TerraformResourceData, config *Config) ([]
 			Type: ComputeReservationAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/compute/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/compute/v1/rest"),
 				DiscoveryName:        "Reservation",
 				Data:                 obj,
 			},

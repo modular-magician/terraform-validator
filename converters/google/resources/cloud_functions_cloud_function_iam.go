@@ -114,7 +114,7 @@ func FetchCloudFunctionsCloudFunctionIamPolicy(d TerraformResourceData, config *
 		CloudFunctionsCloudFunctionIamUpdaterProducer,
 		d,
 		config,
-		"//cloudfunctions.googleapis.com/{{cloudfunction}}",
+		assetName("//cloudfunctions.googleapis.com/{{cloudfunction}}"),
 		CloudFunctionsCloudFunctionIAMAssetType,
 	)
 }

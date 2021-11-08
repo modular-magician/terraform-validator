@@ -39,7 +39,7 @@ func GetNetworkManagementConnectivityTestCaiObject(d TerraformResourceData, conf
 			Type: NetworkManagementConnectivityTestAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/networkmanagement/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/networkmanagement/v1/rest"),
 				DiscoveryName:        "ConnectivityTest",
 				Data:                 obj,
 			},

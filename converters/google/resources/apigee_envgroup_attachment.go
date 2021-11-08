@@ -36,7 +36,7 @@ func GetApigeeEnvgroupAttachmentCaiObject(d TerraformResourceData, config *Confi
 			Type: ApigeeEnvgroupAttachmentAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/apigee/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/apigee/v1/rest"),
 				DiscoveryName:        "EnvgroupAttachment",
 				Data:                 obj,
 			},

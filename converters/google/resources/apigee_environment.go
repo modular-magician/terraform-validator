@@ -36,7 +36,7 @@ func GetApigeeEnvironmentCaiObject(d TerraformResourceData, config *Config) ([]A
 			Type: ApigeeEnvironmentAssetType,
 			Resource: &AssetResource{
 				Version:              "v1",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/apigee/v1/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/apigee/v1/rest"),
 				DiscoveryName:        "Environment",
 				Data:                 obj,
 			},

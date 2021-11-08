@@ -39,7 +39,7 @@ func GetPubsubLiteTopicCaiObject(d TerraformResourceData, config *Config) ([]Ass
 			Type: PubsubLiteTopicAssetType,
 			Resource: &AssetResource{
 				Version:              "admin",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/{{region}}-pubsublite/admin/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/{{region}}-pubsublite/admin/rest"),
 				DiscoveryName:        "Topic",
 				Data:                 obj,
 			},

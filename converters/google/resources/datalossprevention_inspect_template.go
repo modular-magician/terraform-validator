@@ -36,7 +36,7 @@ func GetDataLossPreventionInspectTemplateCaiObject(d TerraformResourceData, conf
 			Type: DataLossPreventionInspectTemplateAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/dlp/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/dlp/v2/rest"),
 				DiscoveryName:        "InspectTemplate",
 				Data:                 obj,
 			},

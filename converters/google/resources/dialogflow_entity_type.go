@@ -36,7 +36,7 @@ func GetDialogflowEntityTypeCaiObject(d TerraformResourceData, config *Config) (
 			Type: DialogflowEntityTypeAssetType,
 			Resource: &AssetResource{
 				Version:              "v2",
-				DiscoveryDocumentURI: "https://www.googleapis.com/discovery/v1/apis/dialogflow/v2/rest",
+				DiscoveryDocumentURI: assetName("https://www.googleapis.com/discovery/v1/apis/dialogflow/v2/rest"),
 				DiscoveryName:        "EntityType",
 				Data:                 obj,
 			},

@@ -85,6 +85,59 @@ func GetComputeBackendBucketApiObject(d TerraformResourceData, config *Config) (
 		obj["name"] = nameProp
 	}
 
+	return resourceComputeBackendBucketEncoder(d, config, obj)
+}
+
+func resourceComputeBackendBucketEncoder(d TerraformResourceData, meta interface{}, obj map[string]interface{}) (map[string]interface{}, error) {
+	c, cdnPolicyOk := d.GetOk("cdn_policy")
+
+	if !cdnPolicyOk {
+		return obj, nil
+	}
+
+	cdnPolicies := c.([]interface{})
+
+	if len(cdnPolicies) == 0 {
+		return obj, nil
+	}
+
+	cdnPolicy := cdnPolicies[0].(map[string]interface{})
+
+	cacheMode := cdnPolicy["cache_mode"].(string)
+	_, defaultTTLOk := cdnPolicy["default_ttl"]
+	_, maxTTLOk := cdnPolicy["max_ttl"]
+	_, clientTTLOk := cdnPolicy["client_ttl"]
+
+	if obj["cdnPolicy"] == nil {
+		obj["cdnPolicy"] = make(map[string]interface{})
+	}
+
+	encCDNPolicy := obj["cdnPolicy"].(map[string]interface{})
+
+	switch cacheMode {
+	case "USE_ORIGIN_HEADERS":
+	case "FORCE_CACHE_ALL":
+		if _, ok := encCDNPolicy["defaultTtl"]; !ok && !defaultTTLOk {
+			encCDNPolicy["defaultTtl"] = 0
+		}
+
+		if _, ok := encCDNPolicy["clientTtl"]; !ok && !clientTTLOk {
+			encCDNPolicy["clientTtl"] = 0
+		}
+	default:
+		if _, ok := encCDNPolicy["defaultTtl"]; !ok && !defaultTTLOk {
+			encCDNPolicy["defaultTtl"] = 0
+		}
+
+		if _, ok := encCDNPolicy["maxTtl"]; !ok && !maxTTLOk {
+			encCDNPolicy["maxTtl"] = 0
+		}
+
+		if _, ok := encCDNPolicy["clientTtl"]; !ok && !clientTTLOk {
+			encCDNPolicy["clientTtl"] = 0
+		}
+	}
+
 	return obj, nil
 }
 
@@ -111,7 +164,7 @@ func expandComputeBackendBucketCdnPolicy(v interface{}, d TerraformResourceData,
 	transformedDefaultTtl, err := expandComputeBackendBucketCdnPolicyDefaultTtl(original["default_ttl"], d, config)
 	if err != nil {
 		return nil, err
-	} else {
+	} else if val := reflect.ValueOf(transformedDefaultTtl); val.IsValid() && !isEmptyValue(val) {
 		transformed["defaultTtl"] = transformedDefaultTtl
 	}
 
@@ -125,7 +178,7 @@ func expandComputeBackendBucketCdnPolicy(v interface{}, d TerraformResourceData,
 	transformedClientTtl, err := expandComputeBackendBucketCdnPolicyClientTtl(original["client_ttl"], d, config)
 	if err != nil {
 		return nil, err
-	} else {
+	} else if val := reflect.ValueOf(transformedClientTtl); val.IsValid() && !isEmptyValue(val) {
 		transformed["clientTtl"] = transformedClientTtl
 	}
 

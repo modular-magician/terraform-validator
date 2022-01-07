@@ -10,7 +10,6 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"go.uber.org/zap/zaptest"
 
 	"github.com/GoogleCloudPlatform/terraform-validator/converters/google"
 	"github.com/GoogleCloudPlatform/terraform-validator/tfgcv"
@@ -65,7 +64,6 @@ func TestReadPlannedAssetsCoverage(t *testing.T) {
 		{name: "example_kms_key_ring_iam_binding"},
 		{name: "example_kms_key_ring_iam_member"},
 		{name: "example_kms_key_ring_iam_policy"},
-		{name: "example_monitoring_alert_policy"},
 		{name: "example_monitoring_notification_channel"},
 		{name: "example_organization_iam_binding"},
 		{name: "example_organization_iam_custom_role"},

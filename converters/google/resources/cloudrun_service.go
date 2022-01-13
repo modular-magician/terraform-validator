@@ -129,6 +129,7 @@ func GetCloudRunServiceApiObject(d TerraformResourceData, config *Config) (map[s
 }
 
 func resourceCloudRunServiceEncoder(d TerraformResourceData, meta interface{}, obj map[string]interface{}) (map[string]interface{}, error) {
+	config := meta.(*Config)
 	name := d.Get("name").(string)
 	if obj["metadata"] == nil {
 		obj["metadata"] = make(map[string]interface{})
@@ -139,6 +140,16 @@ func resourceCloudRunServiceEncoder(d TerraformResourceData, meta interface{}, o
 	// The only acceptable version/kind right now
 	obj["apiVersion"] = "serving.knative.dev/v1"
 	obj["kind"] = "Service"
+
+	// Insert client-name and version https://github.com/hashicorp/terraform-provider-google/issues/5385
+	if metadata["annotations"] == nil {
+		metadata["annotations"] = make(map[string]interface{})
+	}
+
+	annotations := metadata["annotations"].(map[string]interface{})
+	annotations["run.googleapis.com/client-name"] = "hashicorp-terraform"
+	annotations["run.googleapis.com/client-version"] = config.ProviderVersion
+
 	return obj, nil
 }
 

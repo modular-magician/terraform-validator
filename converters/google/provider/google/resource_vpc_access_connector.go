@@ -70,12 +70,11 @@ func resourceVPCAccessConnector() *schema.Resource {
 				Default:      200,
 			},
 			"network": {
-				Type:             schema.TypeString,
-				Optional:         true,
-				ForceNew:         true,
-				DiffSuppressFunc: compareResourceNames,
-				Description:      `Name or self_link of the VPC network. Required if 'ip_cidr_range' is set.`,
-				ExactlyOneOf:     []string{"network"},
+				Type:         schema.TypeString,
+				Optional:     true,
+				ForceNew:     true,
+				Description:  `Name of the VPC network. Required if 'ip_cidr_range' is set.`,
+				ExactlyOneOf: []string{"network"},
 			},
 			"region": {
 				Type:        schema.TypeString,
@@ -363,10 +362,7 @@ func flattenVPCAccessConnectorName(v interface{}, d *schema.ResourceData, config
 }
 
 func flattenVPCAccessConnectorNetwork(v interface{}, d *schema.ResourceData, config *Config) interface{} {
-	if v == nil {
-		return v
-	}
-	return NameFromSelfLinkStateFunc(v)
+	return v
 }
 
 func flattenVPCAccessConnectorIpCidrRange(v interface{}, d *schema.ResourceData, config *Config) interface{} {
@@ -416,7 +412,7 @@ func expandVPCAccessConnectorName(v interface{}, d TerraformResourceData, config
 }
 
 func expandVPCAccessConnectorNetwork(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
-	return GetResourceNameFromSelfLink(v.(string)), nil
+	return v, nil
 }
 
 func expandVPCAccessConnectorIpCidrRange(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {

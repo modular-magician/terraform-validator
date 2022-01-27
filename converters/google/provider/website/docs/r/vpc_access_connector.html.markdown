@@ -179,7 +179,7 @@ The following arguments are supported:
 
 * `network` -
   (Optional)
-  Name or self_link of the VPC network. Required if `ip_cidr_range` is set.
+  Name of the VPC network. Required if `ip_cidr_range` is set.
 
 * `ip_cidr_range` -
   (Optional)

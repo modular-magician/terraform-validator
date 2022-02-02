@@ -26,7 +26,7 @@ func resourceConverterDialogflowCXAgent() ResourceConverter {
 }
 
 func GetDialogflowCXAgentCaiObject(d TerraformResourceData, config *Config) ([]Asset, error) {
-	name, err := assetName(d, config, "//dialogflow.googleapis.com/projects/{{project}}/locations/{{location}}/agents/{{name}}")
+	name, err := assetName(d, config, "//dialogflow.googleapis.com/{{name}}")
 	if err != nil {
 		return []Asset{}, err
 	}

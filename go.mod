@@ -2,6 +2,7 @@ module github.com/GoogleCloudPlatform/terraform-validator
 
 require (
 	cloud.google.com/go/bigtable v1.10.1
+	cloud.google.com/go/iam v0.2.0 // indirect
 	github.com/GoogleCloudPlatform/config-validator v0.0.0-20211122204404-f3fd77c5c355
 	github.com/apparentlymart/go-cidr v1.1.0
 	github.com/davecgh/go-spew v1.1.1
@@ -27,9 +28,11 @@ require (
 	go.uber.org/zap v1.19.1
 	golang.org/x/crypto v0.0.0-20220112180741-5e0467b6c7ce // indirect
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8
-	google.golang.org/api v0.66.0
-	google.golang.org/genproto v0.0.0-20220114231437-d2e6a121cae0
-	google.golang.org/grpc v1.43.0
+	google.golang.org/api v0.67.0
+	google.golang.org/genproto v0.0.0-20220207164111-0872dc986b00
+	google.golang.org/grpc v1.44.0
 )
 
 go 1.16
+
+replace github.com/hashicorp/terraform-provider-google => github.com/modular-magician/terraform-provider-google v1.20.1-0.20220113233230-d1658dca6adc

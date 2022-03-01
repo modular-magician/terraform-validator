@@ -27,9 +27,11 @@ require (
 	go.uber.org/zap v1.19.1
 	golang.org/x/crypto v0.0.0-20220112180741-5e0467b6c7ce // indirect
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8
-	google.golang.org/api v0.66.0
-	google.golang.org/genproto v0.0.0-20220114231437-d2e6a121cae0
-	google.golang.org/grpc v1.43.0
+	google.golang.org/api v0.70.0
+	google.golang.org/genproto v0.0.0-20220218161850-94dd64e39d7c
+	google.golang.org/grpc v1.44.0
 )
 
 go 1.16
+
+replace github.com/hashicorp/terraform-provider-google => github.com/modular-magician/terraform-provider-google v1.20.1-0.20220301111204-de81c67655d0

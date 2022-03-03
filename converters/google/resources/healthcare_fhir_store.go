@@ -96,6 +96,12 @@ func GetHealthcareFhirStoreApiObject(d TerraformResourceData, config *Config) (m
 	} else if v, ok := d.GetOkExists("notification_config"); !isEmptyValue(reflect.ValueOf(notificationConfigProp)) && (ok || !reflect.DeepEqual(v, notificationConfigProp)) {
 		obj["notificationConfig"] = notificationConfigProp
 	}
+	validationConfigProp, err := expandHealthcareFhirStoreValidationConfig(d.Get("validation_config"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("validation_config"); !isEmptyValue(reflect.ValueOf(validationConfigProp)) && (ok || !reflect.DeepEqual(v, validationConfigProp)) {
+		obj["validationConfig"] = validationConfigProp
+	}
 	streamConfigsProp, err := expandHealthcareFhirStoreStreamConfigs(d.Get("stream_configs"), d, config)
 	if err != nil {
 		return nil, err
@@ -161,6 +167,73 @@ func expandHealthcareFhirStoreNotificationConfig(v interface{}, d TerraformResou
 }
 
 func expandHealthcareFhirStoreNotificationConfigPubsubTopic(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandHealthcareFhirStoreValidationConfig(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	l := v.([]interface{})
+	if len(l) == 0 || l[0] == nil {
+		return nil, nil
+	}
+	raw := l[0]
+	original := raw.(map[string]interface{})
+	transformed := make(map[string]interface{})
+
+	transformedDisableProfileValidation, err := expandHealthcareFhirStoreValidationConfigDisableProfileValidation(original["disable_profile_validation"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedDisableProfileValidation); val.IsValid() && !isEmptyValue(val) {
+		transformed["disableProfileValidation"] = transformedDisableProfileValidation
+	}
+
+	transformedDisableRequiredFieldValidation, err := expandHealthcareFhirStoreValidationConfigDisableRequiredFieldValidation(original["disable_required_field_validation"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedDisableRequiredFieldValidation); val.IsValid() && !isEmptyValue(val) {
+		transformed["disableRequiredFieldValidation"] = transformedDisableRequiredFieldValidation
+	}
+
+	transformedDisableReferenceTypeValidation, err := expandHealthcareFhirStoreValidationConfigDisableReferenceTypeValidation(original["disable_reference_type_validation"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedDisableReferenceTypeValidation); val.IsValid() && !isEmptyValue(val) {
+		transformed["disableReferenceTypeValidation"] = transformedDisableReferenceTypeValidation
+	}
+
+	transformedDisableFhirpathValidation, err := expandHealthcareFhirStoreValidationConfigDisableFhirpathValidation(original["disable_fhirpath_validation"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedDisableFhirpathValidation); val.IsValid() && !isEmptyValue(val) {
+		transformed["disableFhirpathValidation"] = transformedDisableFhirpathValidation
+	}
+
+	transformedEnabledImplementationGuides, err := expandHealthcareFhirStoreValidationConfigEnabledImplementationGuides(original["enabled_implementation_guides"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedEnabledImplementationGuides); val.IsValid() && !isEmptyValue(val) {
+		transformed["enabledImplementationGuides"] = transformedEnabledImplementationGuides
+	}
+
+	return transformed, nil
+}
+
+func expandHealthcareFhirStoreValidationConfigDisableProfileValidation(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandHealthcareFhirStoreValidationConfigDisableRequiredFieldValidation(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandHealthcareFhirStoreValidationConfigDisableReferenceTypeValidation(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandHealthcareFhirStoreValidationConfigDisableFhirpathValidation(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandHealthcareFhirStoreValidationConfigEnabledImplementationGuides(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }
 

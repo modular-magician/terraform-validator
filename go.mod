@@ -1,7 +1,7 @@
 module github.com/GoogleCloudPlatform/terraform-validator
 
 require (
-	cloud.google.com/go/bigtable v1.10.1
+	cloud.google.com/go/bigtable v1.13.0
 	github.com/GoogleCloudPlatform/config-validator v0.0.0-20211122204404-f3fd77c5c355
 	github.com/apparentlymart/go-cidr v1.1.0
 	github.com/davecgh/go-spew v1.1.1
@@ -33,3 +33,5 @@ require (
 )
 
 go 1.16
+
+replace github.com/hashicorp/terraform-provider-google => github.com/modular-magician/terraform-provider-google v1.20.1-0.20220324143145-5bdd06cfa436

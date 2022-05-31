@@ -12,7 +12,7 @@ require (
 	github.com/hashicorp/errwrap v1.0.0
 	github.com/hashicorp/go-cleanhttp v0.5.2
 	github.com/hashicorp/terraform-json v0.13.0
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.10.1
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.16.0
 	github.com/hashicorp/terraform-provider-google v1.20.1-0.20220531163602-f4804246ce4c
 	github.com/kr/pretty v0.3.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0
@@ -34,3 +34,5 @@ require (
 )
 
 go 1.16
+
+replace github.com/hashicorp/terraform-provider-google => github.com/modular-magician/terraform-provider-google v1.20.1-0.20220531200733-85b40444e9b9

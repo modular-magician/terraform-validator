@@ -22,6 +22,119 @@ import (
 	"testing"
 )
 
+func TestAccCloudRunService_cloudRunServicePubsubExample_generated_offline(t *testing.T) {
+	testSlug := "CloudRunService_cloudRunServicePubsubExample_offline"
+	offline := true
+	testAccCloudRunService_cloudRunServicePubsubExample_shared(t, testSlug, offline)
+}
+
+func TestAccCloudRunService_cloudRunServicePubsubExample_generated_online(t *testing.T) {
+	testSlug := "CloudRunService_cloudRunServicePubsubExample_online"
+	offline := false
+	testAccCloudRunService_cloudRunServicePubsubExample_shared(t, testSlug, offline)
+}
+
+func testAccCloudRunService_cloudRunServicePubsubExample_shared(t *testing.T, testSlug string, offline bool) {
+	if testing.Short() {
+		t.Skip("skipping integration test in short mode.")
+		return
+	}
+
+	t.Parallel()
+	context := map[string]interface{}{
+		"project":       getTestProjectFromEnv(),
+		"random_suffix": "meepmerp", // true randomization isn't needed for validator
+	}
+
+	terraformConfig := getTestPrefix() + testAccCloudRunService_cloudRunServicePubsubExample(context)
+	dir, err := ioutil.TempDir(tmpDir, "terraform")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer os.RemoveAll(dir)
+
+	dstFile := path.Join(dir, "main.tf")
+	err = os.WriteFile(dstFile, []byte(terraformConfig), 0666)
+	if err != nil {
+		t.Fatalf("error while writing to file %s, error %v", dstFile, err)
+	}
+
+	terraformWorkflow(t, dir, testSlug)
+	if offline && shouldOutputGeneratedFiles() {
+		generateTFVconvertedAsset(t, dir, testSlug)
+		return
+	}
+
+	// need to have comparison.. perhaps test vs checked in code
+	// testConvertCommand(t, dir, c.name, offline, c.compareConvertOutput)
+
+	testValidateCommandGeneric(t, dir, testSlug, offline)
+}
+
+func testAccCloudRunService_cloudRunServicePubsubExample(context map[string]interface{}) string {
+	return Nprintf(`
+resource "google_cloud_run_service" "default" {
+    name     = "tf_test_cloud_run_service_name%{random_suffix}"
+    location = "us-central1"
+
+    template {
+      spec {
+            containers {
+                image = "gcr.io/cloudrun/hello"
+            }
+      }
+    }
+    traffic {
+      percent         = 100
+      latest_revision = true
+    }
+}
+
+resource "google_service_account" "sa" {
+  account_id   = "cloud-run-pubsub-invoker"
+  display_name = "Cloud Run Pub/Sub Invoker"
+}
+
+locals {
+  cloud_run_url = google_cloud_run_service.default.status[0].url
+  pubsub_sa= google_service_account.sa.email
+}
+
+resource "google_cloud_run_service_iam_binding" "binding" {
+  location = google_cloud_run_service.default.location
+  project = google_cloud_run_service.default.project
+  service = google_cloud_run_service.default.name
+  role = "roles/run.invoker"
+  members = ["serviceAccount:${local.pubsub_sa}"]
+}
+
+resource "google_project_iam_binding" "project" {
+  project = "%{project}"
+  role    = "roles/iam.serviceAccountTokenCreator"
+  members = ["serviceAccount:${local.pubsub_sa}"]
+}
+
+resource "google_pubsub_topic" "topic" {
+  name = "tf_test_pubsub_topic%{random_suffix}"
+}
+
+resource "google_pubsub_subscription" "subscription" {
+  name  = "tf_test_pubsub_subscription%{random_suffix}"
+  topic = google_pubsub_topic.topic.name
+
+  push_config {
+    push_endpoint = "${local.cloud_run_url}"
+    oidc_token {
+      service_account_email = "${local.pubsub_sa}"
+    }
+    attributes = {
+      x-goog-version = "v1"
+    }
+  }
+}
+`, context)
+}
+
 func TestAccCloudRunService_cloudRunServiceBasicExample_generated_offline(t *testing.T) {
 	testSlug := "CloudRunService_cloudRunServiceBasicExample_offline"
 	offline := true

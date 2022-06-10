@@ -1,0 +1,103 @@
+[
+  {
+    "name": "//cloudresourcemanager.googleapis.com/projects/foobar",
+    "asset_type": "cloudresourcemanager.googleapis.com/Project",
+    "iam_policy": {
+      "bindings": [
+        {
+          "role": "roles/iam.serviceAccountTokenCreator",
+          "members": null
+        }
+      ]
+    },
+    "ancestors": [
+      "projects/foobar",
+      "folders/67890",
+      "organizations/12345"
+    ]
+  },
+  {
+    "name": "//pubsub.googleapis.com/projects/foobar/subscriptions/tf_test_pubsub_subscriptionmeepmerp",
+    "asset_type": "pubsub.googleapis.com/Subscription",
+    "resource": {
+      "version": "v1",
+      "discovery_document_uri": "https://www.googleapis.com/discovery/v1/apis/pubsub/v1/rest",
+      "discovery_name": "Subscription",
+      "parent": "//cloudresourcemanager.googleapis.com/projects/foobar",
+      "data": {
+        "deadLetterPolicy": null,
+        "expirationPolicy": null,
+        "messageRetentionDuration": "604800s",
+        "topic": "projects/foobar/topics/tf_test_pubsub_topicmeepmerp"
+      }
+    },
+    "ancestors": [
+      "projects/foobar",
+      "folders/67890",
+      "organizations/12345"
+    ]
+  },
+  {
+    "name": "//pubsub.googleapis.com/projects/foobar/topics/tf_test_pubsub_topicmeepmerp",
+    "asset_type": "pubsub.googleapis.com/Topic",
+    "resource": {
+      "version": "v1",
+      "discovery_document_uri": "https://www.googleapis.com/discovery/v1/apis/pubsub/v1/rest",
+      "discovery_name": "Topic",
+      "parent": "//cloudresourcemanager.googleapis.com/projects/foobar",
+      "data": {}
+    },
+    "ancestors": [
+      "projects/foobar",
+      "folders/67890",
+      "organizations/12345"
+    ]
+  },
+  {
+    "name": "//run.googleapis.com/projects/foobar/locations/us-central1/services/tf_test_cloud_run_service_namemeepmerp",
+    "asset_type": "run.googleapis.com/Service",
+    "resource": {
+      "version": "v1",
+      "discovery_document_uri": "https://www.googleapis.com/discovery/v1/apis/run/v1/rest",
+      "discovery_name": "Service",
+      "parent": "//cloudresourcemanager.googleapis.com/projects/foobar",
+      "data": {
+        "apiVersion": "serving.knative.dev/v1",
+        "kind": "Service",
+        "metadata": {
+          "name": "tf_test_cloud_run_service_namemeepmerp"
+        },
+        "spec": {
+          "template": {
+            "spec": {
+              "containers": [
+                {
+                  "image": "gcr.io/cloudrun/hello"
+                }
+              ]
+            }
+          },
+          "traffic": [
+            {
+              "latestRevision": true,
+              "percent": 100
+            }
+          ]
+        }
+      }
+    },
+    "iam_policy": {
+      "bindings": [
+        {
+          "role": "roles/run.invoker",
+          "members": null
+        }
+      ]
+    },
+    "ancestors": [
+      "projects/foobar",
+      "folders/67890",
+      "organizations/12345"
+    ]
+  }
+]

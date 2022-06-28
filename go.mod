@@ -34,3 +34,5 @@ require (
 )
 
 go 1.16
+
+replace github.com/hashicorp/terraform-provider-google => github.com/modular-magician/terraform-provider-google v1.20.1-0.20220628161704-e85dc7777584

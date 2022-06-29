@@ -22,8 +22,6 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/stretchr/testify/require"
-
 	"github.com/GoogleCloudPlatform/terraform-validator/converters/google"
 )
 
@@ -238,7 +236,7 @@ type compareConvertOutputFunc func(t *testing.T, expected []google.Asset, actual
 func compareUnmergedConvertOutput(t *testing.T, expected []google.Asset, actual []google.Asset, offline bool) {
 	expectedAssets := normalizeAssets(t, expected, offline)
 	actualAssets := normalizeAssets(t, actual, offline)
-	require.ElementsMatch(t, expectedAssets, actualAssets)
+	assertAssetsMatch(t, actualAssets, expectedAssets)
 }
 
 // For merged IAM members, only consider whether the expected members are present.
@@ -279,7 +277,7 @@ func compareMergedIamMemberOutput(t *testing.T, expected []google.Asset, actual 
 
 	expectedAssets := normalizeAssets(t, expected, offline)
 	actualAssets := normalizeAssets(t, normalizedActual, offline)
-	require.ElementsMatch(t, expectedAssets, actualAssets)
+	assertAssetsMatch(t, actualAssets, expectedAssets)
 }
 
 // For merged IAM bindings, only consider whether the expected bindings are as expected.
@@ -309,5 +307,5 @@ func compareMergedIamBindingOutput(t *testing.T, expected []google.Asset, actual
 
 	expectedAssets := normalizeAssets(t, expected, offline)
 	actualAssets := normalizeAssets(t, normalizedActual, offline)
-	require.ElementsMatch(t, expectedAssets, actualAssets)
+	assertAssetsMatch(t, actualAssets, expectedAssets)
 }

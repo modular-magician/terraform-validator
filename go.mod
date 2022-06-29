@@ -19,6 +19,7 @@ require (
 	github.com/onsi/gomega v1.17.0 // indirect
 	github.com/open-policy-agent/opa v0.36.1 // indirect
 	github.com/pkg/errors v0.9.1
+	github.com/r3labs/diff/v2 v2.15.1
 	github.com/rogpeppe/go-internal v1.8.1 // indirect
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.3.0
@@ -34,3 +35,5 @@ require (
 )
 
 go 1.16
+
+replace github.com/hashicorp/terraform-provider-google => github.com/modular-magician/terraform-provider-google v1.20.1-0.20220628185843-e489eff59989

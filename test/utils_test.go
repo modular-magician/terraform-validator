@@ -13,13 +13,13 @@ import (
 	"testing"
 
 	"github.com/GoogleCloudPlatform/terraform-validator/converters/google"
-	"github.com/stretchr/testify/require"
+	"github.com/r3labs/diff/v2"
 )
 
 func defaultCompareConverterOutput(t *testing.T, expected []google.Asset, actual []google.Asset, offline bool) {
 	expectedAssets := normalizeAssets(t, expected, offline)
 	actualAssets := normalizeAssets(t, actual, offline)
-	require.ElementsMatch(t, expectedAssets, actualAssets)
+	assertAssetsMatch(t, actualAssets, expectedAssets)
 }
 
 func testConvertCommand(t *testing.T, dir, name string, offline bool, compare compareConvertOutputFunc) {
@@ -224,4 +224,20 @@ func getTestPrefix() string {
 	}
 
 `, data.Provider["version"], credentials)
+}
+
+func assertAssetsMatch(t *testing.T, actualAssets, expectedAssets []google.Asset) {
+	d, err := diff.NewDiffer(diff.SliceOrdering(false))
+	if err != nil {
+		panic(err)
+	}
+	changes, _ := d.Diff(actualAssets, expectedAssets)
+	if len(changes) == 0 {
+		return
+	}
+	t.Log("[Error] The following changes have occurred")
+	for _, i := range changes {
+		t.Logf("        Element %v has been %sd from `%v` to  `%v`\n", i.Path, i.Type, i.From, i.To)
+	}
+	t.Fail()
 }

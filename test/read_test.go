@@ -8,8 +8,6 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/stretchr/testify/require"
-
 	"github.com/GoogleCloudPlatform/terraform-validator/tfgcv"
 	"go.uber.org/zap/zaptest"
 )
@@ -147,7 +145,7 @@ func TestReadPlannedAssetsCoverage(t *testing.T) {
 
 			expectedAssets := normalizeAssets(t, want, true)
 			actualAssets := normalizeAssets(t, got, true)
-			require.ElementsMatch(t, actualAssets, expectedAssets)
+			assertAssetsMatch(t, actualAssets, expectedAssets)
 		})
 	}
 }

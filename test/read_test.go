@@ -153,6 +153,8 @@ func TestReadPlannedAssetsCoverage(t *testing.T) {
 	}
 }
 
+// Comment
+
 func TestReadPlannedAssetsCoverage_WithoutDefaultProject(t *testing.T) {
 	cases := []struct {
 		name string

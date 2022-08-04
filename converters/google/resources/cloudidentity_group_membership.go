@@ -120,11 +120,41 @@ func expandCloudIdentityGroupMembershipRoles(v interface{}, d TerraformResourceD
 			transformed["name"] = transformedName
 		}
 
+		transformedExpiryDetail, err := expandCloudIdentityGroupMembershipRolesExpiryDetail(original["expiry_detail"], d, config)
+		if err != nil {
+			return nil, err
+		} else if val := reflect.ValueOf(transformedExpiryDetail); val.IsValid() && !isEmptyValue(val) {
+			transformed["expiryDetail"] = transformedExpiryDetail
+		}
+
 		req = append(req, transformed)
 	}
 	return req, nil
 }
 
 func expandCloudIdentityGroupMembershipRolesName(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandCloudIdentityGroupMembershipRolesExpiryDetail(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	l := v.([]interface{})
+	if len(l) == 0 || l[0] == nil {
+		return nil, nil
+	}
+	raw := l[0]
+	original := raw.(map[string]interface{})
+	transformed := make(map[string]interface{})
+
+	transformedExpireTime, err := expandCloudIdentityGroupMembershipRolesExpiryDetailExpireTime(original["expire_time"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedExpireTime); val.IsValid() && !isEmptyValue(val) {
+		transformed["expireTime"] = transformedExpireTime
+	}
+
+	return transformed, nil
+}
+
+func expandCloudIdentityGroupMembershipRolesExpiryDetailExpireTime(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }

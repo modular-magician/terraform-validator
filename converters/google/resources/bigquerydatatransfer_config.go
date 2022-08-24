@@ -127,6 +127,18 @@ func GetBigqueryDataTransferConfigApiObject(d TerraformResourceData, config *Con
 	} else if v, ok := d.GetOkExists("params"); !isEmptyValue(reflect.ValueOf(paramsProp)) && (ok || !reflect.DeepEqual(v, paramsProp)) {
 		obj["params"] = paramsProp
 	}
+	versionInfoProp, err := expandBigqueryDataTransferConfigVersionInfo(d.Get("version_info"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("version_info"); !isEmptyValue(reflect.ValueOf(versionInfoProp)) && (ok || !reflect.DeepEqual(v, versionInfoProp)) {
+		obj["versionInfo"] = versionInfoProp
+	}
+	authorizationCodeProp, err := expandBigqueryDataTransferConfigAuthorizationCode(d.Get("authorization_code"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("authorization_code"); !isEmptyValue(reflect.ValueOf(authorizationCodeProp)) && (ok || !reflect.DeepEqual(v, authorizationCodeProp)) {
+		obj["authorizationCode"] = authorizationCodeProp
+	}
 
 	return resourceBigqueryDataTransferConfigEncoder(d, config, obj)
 }
@@ -256,4 +268,12 @@ func expandBigqueryDataTransferConfigParams(v interface{}, d TerraformResourceDa
 		m[k] = val.(string)
 	}
 	return m, nil
+}
+
+func expandBigqueryDataTransferConfigVersionInfo(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandBigqueryDataTransferConfigAuthorizationCode(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
 }

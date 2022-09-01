@@ -82,6 +82,12 @@ func GetAppEngineStandardAppVersionApiObject(d TerraformResourceData, config *Co
 	} else if v, ok := d.GetOkExists("runtime_api_version"); !isEmptyValue(reflect.ValueOf(runtimeApiVersionProp)) && (ok || !reflect.DeepEqual(v, runtimeApiVersionProp)) {
 		obj["runtimeApiVersion"] = runtimeApiVersionProp
 	}
+	serviceAccountProp, err := expandAppEngineStandardAppVersionServiceAccount(d.Get("service_account"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("service_account"); !isEmptyValue(reflect.ValueOf(serviceAccountProp)) && (ok || !reflect.DeepEqual(v, serviceAccountProp)) {
+		obj["serviceAccount"] = serviceAccountProp
+	}
 	handlersProp, err := expandAppEngineStandardAppVersionHandlers(d.Get("handlers"), d, config)
 	if err != nil {
 		return nil, err
@@ -169,6 +175,10 @@ func expandAppEngineStandardAppVersionAppEngineApis(v interface{}, d TerraformRe
 }
 
 func expandAppEngineStandardAppVersionRuntimeApiVersion(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandAppEngineStandardAppVersionServiceAccount(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }
 

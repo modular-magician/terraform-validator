@@ -403,6 +403,13 @@ func expandCloudfunctions2functionServiceConfig(v interface{}, d TerraformResour
 		transformed["minInstanceCount"] = transformedMinInstanceCount
 	}
 
+	transformedConcurrency, err := expandCloudfunctions2functionServiceConfigConcurrency(original["concurrency"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedConcurrency); val.IsValid() && !isEmptyValue(val) {
+		transformed["concurrency"] = transformedConcurrency
+	}
+
 	transformedVPCConnector, err := expandCloudfunctions2functionServiceConfigVPCConnector(original["vpc_connector"], d, config)
 	if err != nil {
 		return nil, err
@@ -497,6 +504,10 @@ func expandCloudfunctions2functionServiceConfigMaxInstanceCount(v interface{}, d
 }
 
 func expandCloudfunctions2functionServiceConfigMinInstanceCount(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandCloudfunctions2functionServiceConfigConcurrency(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }
 

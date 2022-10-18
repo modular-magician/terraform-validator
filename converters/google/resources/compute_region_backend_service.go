@@ -737,6 +737,13 @@ func expandComputeRegionBackendServiceCdnPolicy(v interface{}, d TerraformResour
 		transformed["negativeCachingPolicy"] = transformedNegativeCachingPolicy
 	}
 
+	transformedRequestCoalescing, err := expandComputeRegionBackendServiceCdnPolicyRequestCoalescing(original["request_coalescing"], d, config)
+	if err != nil {
+		return nil, err
+	} else {
+		transformed["requestCoalescing"] = transformedRequestCoalescing
+	}
+
 	transformedCacheMode, err := expandComputeRegionBackendServiceCdnPolicyCacheMode(original["cache_mode"], d, config)
 	if err != nil {
 		return nil, err
@@ -877,6 +884,10 @@ func expandComputeRegionBackendServiceCdnPolicyNegativeCachingPolicy(v interface
 }
 
 func expandComputeRegionBackendServiceCdnPolicyNegativeCachingPolicyCode(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandComputeRegionBackendServiceCdnPolicyRequestCoalescing(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }
 

@@ -70,7 +70,7 @@ func resourceConverterBigqueryDataTransferConfig() ResourceConverter {
 }
 
 func GetBigqueryDataTransferConfigCaiObject(d TerraformResourceData, config *Config) ([]Asset, error) {
-	name, err := assetName(d, config, "//bigquerydatatransfer.googleapis.com/{{name}}")
+	name, err := assetName(d, config, "//bigquerydatatransfer.googleapis.com/projects/{{project}}/locations/{{location}}/transferConfigs/{{name}}")
 	if err != nil {
 		return []Asset{}, err
 	}

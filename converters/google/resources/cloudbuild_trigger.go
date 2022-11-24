@@ -460,6 +460,13 @@ func expandCloudBuildTriggerGithub(v interface{}, d TerraformResourceData, confi
 	original := raw.(map[string]interface{})
 	transformed := make(map[string]interface{})
 
+	transformedEnterpriseConfigResourceName, err := expandCloudBuildTriggerGithubEnterpriseConfigResourceName(original["enterprise_config_resource_name"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedEnterpriseConfigResourceName); val.IsValid() && !isEmptyValue(val) {
+		transformed["enterpriseConfigResourceName"] = transformedEnterpriseConfigResourceName
+	}
+
 	transformedOwner, err := expandCloudBuildTriggerGithubOwner(original["owner"], d, config)
 	if err != nil {
 		return nil, err
@@ -489,6 +496,10 @@ func expandCloudBuildTriggerGithub(v interface{}, d TerraformResourceData, confi
 	}
 
 	return transformed, nil
+}
+
+func expandCloudBuildTriggerGithubEnterpriseConfigResourceName(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
 }
 
 func expandCloudBuildTriggerGithubOwner(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {

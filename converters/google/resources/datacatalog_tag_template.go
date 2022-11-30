@@ -58,6 +58,12 @@ func GetDataCatalogTagTemplateApiObject(d TerraformResourceData, config *Config)
 	} else if v, ok := d.GetOkExists("display_name"); !isEmptyValue(reflect.ValueOf(displayNameProp)) && (ok || !reflect.DeepEqual(v, displayNameProp)) {
 		obj["displayName"] = displayNameProp
 	}
+	isPubliclyReadableProp, err := expandDataCatalogTagTemplateIsPubliclyReadable(d.Get("is_publicly_readable"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("is_publicly_readable"); !isEmptyValue(reflect.ValueOf(isPubliclyReadableProp)) && (ok || !reflect.DeepEqual(v, isPubliclyReadableProp)) {
+		obj["isPubliclyReadable"] = isPubliclyReadableProp
+	}
 	fieldsProp, err := expandDataCatalogTagTemplateFields(d.Get("fields"), d, config)
 	if err != nil {
 		return nil, err
@@ -69,6 +75,10 @@ func GetDataCatalogTagTemplateApiObject(d TerraformResourceData, config *Config)
 }
 
 func expandDataCatalogTagTemplateDisplayName(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandDataCatalogTagTemplateIsPubliclyReadable(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }
 

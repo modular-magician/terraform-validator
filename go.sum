@@ -658,8 +658,6 @@ github.com/hashicorp/terraform-plugin-log v0.7.0 h1:SDxJUyT8TwN4l5b5/VkiTIaQgY6R
 github.com/hashicorp/terraform-plugin-log v0.7.0/go.mod h1:p4R1jWBXRTvL4odmEkFfDdhUjHf9zcs/BCoNHAc7IK4=
 github.com/hashicorp/terraform-plugin-sdk/v2 v2.24.0 h1:FtCLTiTcykdsURXPt/ku7fYXm3y19nbzbZcUxHx9RbI=
 github.com/hashicorp/terraform-plugin-sdk/v2 v2.24.0/go.mod h1:80wf5oad1tW+oLnbXS4UTYmDCrl7BuN1Q+IA91X1a4Y=
-github.com/hashicorp/terraform-provider-google v1.20.1-0.20221130210739-3cf7155b8501 h1:Js6NtrkCpJO7Uad2v3+RlDsXOapXSJe4DzxaOx8wTao=
-github.com/hashicorp/terraform-provider-google v1.20.1-0.20221130210739-3cf7155b8501/go.mod h1:noO9KRFUJgJg9g+VaIqh0oUlr3GaDCtbFB+KD+iBgeI=
 github.com/hashicorp/terraform-registry-address v0.0.0-20220623143253-7d51757b572c h1:D8aRO6+mTqHfLsK/BC3j5OAoogv1WLRWzY1AaTo3rBg=
 github.com/hashicorp/terraform-registry-address v0.0.0-20220623143253-7d51757b572c/go.mod h1:Wn3Na71knbXc1G8Lh+yu/dQWWJeFQEpDeJMtWMtlmNI=
 github.com/hashicorp/terraform-svchost v0.0.0-20200729002733-f050f53b9734 h1:HKLsbzeOsfXmKNpr3GiT18XAblV0BjCbzL8KQAMZGa0=
@@ -840,6 +838,8 @@ github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742/go.mod h1:bx2lN
 github.com/modern-go/reflect2 v1.0.1/go.mod h1:bx2lNnkwVCuqBIxFjflWJWanXIb3RllmbCylyMrvgv0=
 github.com/modern-go/reflect2 v1.0.2 h1:xBagoLtFs94CBntxluKeaWgTMpvLxC4ur3nMaC9Gz0M=
 github.com/modern-go/reflect2 v1.0.2/go.mod h1:yWuevngMOJpCy52FWWMvUC8ws7m/LJsjYzDa0/r8luk=
+github.com/modular-magician/terraform-provider-google v1.20.1-0.20221130223333-c75e919db698 h1:eGiolThKYMOxxp2rZONhXH6TQ+g6nM2bb0YXfYw41JM=
+github.com/modular-magician/terraform-provider-google v1.20.1-0.20221130223333-c75e919db698/go.mod h1:noO9KRFUJgJg9g+VaIqh0oUlr3GaDCtbFB+KD+iBgeI=
 github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826/go.mod h1:TaXosZuwdSHYgviHp1DAtfrULt5eUgsSMsZf+YrPgl8=
 github.com/moricho/tparallel v0.2.1/go.mod h1:fXEIZxG2vdfl0ZF8b42f5a78EhjjD5mX8qUplsoSU4k=
 github.com/mozilla/scribe v0.0.0-20180711195314-fb71baf557c1/go.mod h1:FIczTrinKo8VaLxe6PWTPEXRXDIHz2QAwiaBaP5/4a8=

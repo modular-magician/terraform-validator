@@ -213,7 +213,7 @@ func expandBigqueryDataTransferConfigScheduleOptions(v interface{}, d TerraformR
 	transformedDisableAutoScheduling, err := expandBigqueryDataTransferConfigScheduleOptionsDisableAutoScheduling(original["disable_auto_scheduling"], d, config)
 	if err != nil {
 		return nil, err
-	} else if val := reflect.ValueOf(transformedDisableAutoScheduling); val.IsValid() && !isEmptyValue(val) {
+	} else {
 		transformed["disableAutoScheduling"] = transformedDisableAutoScheduling
 	}
 

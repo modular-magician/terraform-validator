@@ -66,6 +66,18 @@ func GetComputeNetworkPeeringRoutesConfigApiObject(d TerraformResourceData, conf
 	} else if v, ok := d.GetOkExists("import_custom_routes"); ok || !reflect.DeepEqual(v, importCustomRoutesProp) {
 		obj["importCustomRoutes"] = importCustomRoutesProp
 	}
+	exportSubnetRoutesWithPublicIpProp, err := expandComputeNetworkPeeringRoutesConfigExportSubnetRoutesWithPublicIp(d.Get("export_subnet_routes_with_public_ip"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("export_subnet_routes_with_public_ip"); !isEmptyValue(reflect.ValueOf(exportSubnetRoutesWithPublicIpProp)) && (ok || !reflect.DeepEqual(v, exportSubnetRoutesWithPublicIpProp)) {
+		obj["exportSubnetRoutesWithPublicIp"] = exportSubnetRoutesWithPublicIpProp
+	}
+	importSubnetRoutesWithPublicIpProp, err := expandComputeNetworkPeeringRoutesConfigImportSubnetRoutesWithPublicIp(d.Get("import_subnet_routes_with_public_ip"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("import_subnet_routes_with_public_ip"); !isEmptyValue(reflect.ValueOf(importSubnetRoutesWithPublicIpProp)) && (ok || !reflect.DeepEqual(v, importSubnetRoutesWithPublicIpProp)) {
+		obj["importSubnetRoutesWithPublicIp"] = importSubnetRoutesWithPublicIpProp
+	}
 
 	return resourceComputeNetworkPeeringRoutesConfigEncoder(d, config, obj)
 }
@@ -87,5 +99,13 @@ func expandComputeNetworkPeeringRoutesConfigExportCustomRoutes(v interface{}, d 
 }
 
 func expandComputeNetworkPeeringRoutesConfigImportCustomRoutes(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandComputeNetworkPeeringRoutesConfigExportSubnetRoutesWithPublicIp(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandComputeNetworkPeeringRoutesConfigImportSubnetRoutesWithPublicIp(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }

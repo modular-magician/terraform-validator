@@ -34,8 +34,8 @@ require (
 	github.com/stretchr/testify v1.8.1
 	go.uber.org/zap v1.21.0
 	golang.org/x/oauth2 v0.0.0-20221014153046-6fdb5e3db783
-	google.golang.org/api v0.103.0
-	google.golang.org/genproto v0.0.0-20221201164419-0e50fba7f41c
+	google.golang.org/api v0.105.0
+	google.golang.org/genproto v0.0.0-20221206210731-b1a01be3a5f6
 	google.golang.org/grpc v1.51.0
 )
 
@@ -44,8 +44,8 @@ require (
 	cloud.google.com/go v0.105.0 // indirect
 	cloud.google.com/go/accesscontextmanager v1.4.0 // indirect
 	cloud.google.com/go/asset v1.10.0 // indirect
-	cloud.google.com/go/compute v1.12.1 // indirect
-	cloud.google.com/go/compute/metadata v0.2.1 // indirect
+	cloud.google.com/go/compute v1.13.0 // indirect
+	cloud.google.com/go/compute/metadata v0.2.2 // indirect
 	cloud.google.com/go/iam v0.8.0 // indirect
 	cloud.google.com/go/longrunning v0.3.0 // indirect
 	cloud.google.com/go/osconfig v1.10.0 // indirect
@@ -172,7 +172,7 @@ require (
 	golang.org/x/net v0.0.0-20221014081412-f15817d10f9b // indirect
 	golang.org/x/sys v0.0.0-20221010170243-090e33056c14 // indirect
 	golang.org/x/term v0.0.0-20220526004731-065cf7ba2467 // indirect
-	golang.org/x/text v0.4.0 // indirect
+	golang.org/x/text v0.5.0 // indirect
 	golang.org/x/time v0.0.0-20220609170525-579cf78fd858 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
@@ -196,3 +196,5 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
+
+replace github.com/hashicorp/terraform-provider-google => github.com/modular-magician/terraform-provider-google v1.20.1-0.20221228131610-31a6d64923e7

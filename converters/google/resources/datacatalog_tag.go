@@ -135,6 +135,13 @@ func expandDataCatalogTagFields(v interface{}, d TerraformResourceData, config *
 			transformed["stringValue"] = transformedStringValue
 		}
 
+		transformedRichtextValue, err := expandDataCatalogTagFieldsRichtextValue(original["richtext_value"], d, config)
+		if err != nil {
+			return nil, err
+		} else if val := reflect.ValueOf(transformedRichtextValue); val.IsValid() && !isEmptyValue(val) {
+			transformed["richtextValue"] = transformedRichtextValue
+		}
+
 		transformedBoolValue, err := expandDataCatalogTagFieldsBoolValue(original["bool_value"], d, config)
 		if err != nil {
 			return nil, err
@@ -178,6 +185,10 @@ func expandDataCatalogTagFieldsDoubleValue(v interface{}, d TerraformResourceDat
 }
 
 func expandDataCatalogTagFieldsStringValue(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandDataCatalogTagFieldsRichtextValue(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }
 

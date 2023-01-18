@@ -54,10 +54,98 @@ func GetIdentityPlatformConfigApiObject(d TerraformResourceData, config *Config)
 	} else if v, ok := d.GetOkExists("autodelete_anonymous_users"); !isEmptyValue(reflect.ValueOf(autodeleteAnonymousUsersProp)) && (ok || !reflect.DeepEqual(v, autodeleteAnonymousUsersProp)) {
 		obj["autodeleteAnonymousUsers"] = autodeleteAnonymousUsersProp
 	}
+	multiTenantProp, err := expandIdentityPlatformConfigMultiTenant(d.Get("multi_tenant"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("multi_tenant"); !isEmptyValue(reflect.ValueOf(multiTenantProp)) && (ok || !reflect.DeepEqual(v, multiTenantProp)) {
+		obj["multiTenant"] = multiTenantProp
+	}
+	monitoringProp, err := expandIdentityPlatformConfigMonitoring(d.Get("monitoring"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("monitoring"); !isEmptyValue(reflect.ValueOf(monitoringProp)) && (ok || !reflect.DeepEqual(v, monitoringProp)) {
+		obj["monitoring"] = monitoringProp
+	}
 
 	return obj, nil
 }
 
 func expandIdentityPlatformConfigAutodeleteAnonymousUsers(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandIdentityPlatformConfigMultiTenant(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	l := v.([]interface{})
+	if len(l) == 0 || l[0] == nil {
+		return nil, nil
+	}
+	raw := l[0]
+	original := raw.(map[string]interface{})
+	transformed := make(map[string]interface{})
+
+	transformedAllowTenants, err := expandIdentityPlatformConfigMultiTenantAllowTenants(original["allow_tenants"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedAllowTenants); val.IsValid() && !isEmptyValue(val) {
+		transformed["allowTenants"] = transformedAllowTenants
+	}
+
+	transformedDefaultTenantLocation, err := expandIdentityPlatformConfigMultiTenantDefaultTenantLocation(original["default_tenant_location"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedDefaultTenantLocation); val.IsValid() && !isEmptyValue(val) {
+		transformed["defaultTenantLocation"] = transformedDefaultTenantLocation
+	}
+
+	return transformed, nil
+}
+
+func expandIdentityPlatformConfigMultiTenantAllowTenants(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandIdentityPlatformConfigMultiTenantDefaultTenantLocation(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandIdentityPlatformConfigMonitoring(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	l := v.([]interface{})
+	if len(l) == 0 || l[0] == nil {
+		return nil, nil
+	}
+	raw := l[0]
+	original := raw.(map[string]interface{})
+	transformed := make(map[string]interface{})
+
+	transformedRequestLogging, err := expandIdentityPlatformConfigMonitoringRequestLogging(original["request_logging"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedRequestLogging); val.IsValid() && !isEmptyValue(val) {
+		transformed["requestLogging"] = transformedRequestLogging
+	}
+
+	return transformed, nil
+}
+
+func expandIdentityPlatformConfigMonitoringRequestLogging(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	l := v.([]interface{})
+	if len(l) == 0 || l[0] == nil {
+		return nil, nil
+	}
+	raw := l[0]
+	original := raw.(map[string]interface{})
+	transformed := make(map[string]interface{})
+
+	transformedEnabled, err := expandIdentityPlatformConfigMonitoringRequestLoggingEnabled(original["enabled"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedEnabled); val.IsValid() && !isEmptyValue(val) {
+		transformed["enabled"] = transformedEnabled
+	}
+
+	return transformed, nil
+}
+
+func expandIdentityPlatformConfigMonitoringRequestLoggingEnabled(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }

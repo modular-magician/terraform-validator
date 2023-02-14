@@ -110,11 +110,8 @@ require (
 	github.com/hashicorp/hcl/v2 v2.14.1 // indirect
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-exec v0.17.3 // indirect
-	github.com/hashicorp/terraform-plugin-framework v1.1.1 // indirect
-	github.com/hashicorp/terraform-plugin-framework-validators v0.9.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.14.3 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.7.0 // indirect
-	github.com/hashicorp/terraform-plugin-mux v0.8.0 // indirect
 	github.com/hashicorp/terraform-registry-address v0.1.0 // indirect
 	github.com/hashicorp/terraform-svchost v0.0.0-20200729002733-f050f53b9734 // indirect
 	github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d // indirect
@@ -199,3 +196,5 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
+
+replace github.com/hashicorp/terraform-provider-google => github.com/modular-magician/terraform-provider-google v1.20.1-0.20230214230027-64fb1bb11610

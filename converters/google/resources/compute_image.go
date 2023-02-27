@@ -53,6 +53,12 @@ func GetComputeImageCaiObject(d TerraformResourceData, config *Config) ([]Asset,
 
 func GetComputeImageApiObject(d TerraformResourceData, config *Config) (map[string]interface{}, error) {
 	obj := make(map[string]interface{})
+	storageLocationsProp, err := expandComputeImageStorageLocations(d.Get("storage_locations"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("storage_locations"); !isEmptyValue(reflect.ValueOf(storageLocationsProp)) && (ok || !reflect.DeepEqual(v, storageLocationsProp)) {
+		obj["storageLocations"] = storageLocationsProp
+	}
 	descriptionProp, err := expandComputeImageDescription(d.Get("description"), d, config)
 	if err != nil {
 		return nil, err
@@ -133,6 +139,10 @@ func GetComputeImageApiObject(d TerraformResourceData, config *Config) (map[stri
 	}
 
 	return obj, nil
+}
+
+func expandComputeImageStorageLocations(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
 }
 
 func expandComputeImageDescription(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {

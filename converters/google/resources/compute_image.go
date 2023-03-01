@@ -59,6 +59,12 @@ func GetComputeImageApiObject(d TerraformResourceData, config *Config) (map[stri
 	} else if v, ok := d.GetOkExists("description"); !isEmptyValue(reflect.ValueOf(descriptionProp)) && (ok || !reflect.DeepEqual(v, descriptionProp)) {
 		obj["description"] = descriptionProp
 	}
+	storageLocationsProp, err := expandComputeImageStorageLocations(d.Get("storage_locations"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("storage_locations"); !isEmptyValue(reflect.ValueOf(storageLocationsProp)) && (ok || !reflect.DeepEqual(v, storageLocationsProp)) {
+		obj["storageLocations"] = storageLocationsProp
+	}
 	diskSizeGbProp, err := expandComputeImageDiskSizeGb(d.Get("disk_size_gb"), d, config)
 	if err != nil {
 		return nil, err
@@ -136,6 +142,10 @@ func GetComputeImageApiObject(d TerraformResourceData, config *Config) (map[stri
 }
 
 func expandComputeImageDescription(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandComputeImageStorageLocations(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }
 

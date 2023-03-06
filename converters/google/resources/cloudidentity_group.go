@@ -78,6 +78,12 @@ func GetCloudIdentityGroupApiObject(d TerraformResourceData, config *Config) (ma
 	} else if v, ok := d.GetOkExists("labels"); !isEmptyValue(reflect.ValueOf(labelsProp)) && (ok || !reflect.DeepEqual(v, labelsProp)) {
 		obj["labels"] = labelsProp
 	}
+	dynamicGroupMetadataProp, err := expandCloudIdentityGroupDynamicGroupMetadata(d.Get("dynamic_group_metadata"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("dynamic_group_metadata"); !isEmptyValue(reflect.ValueOf(dynamicGroupMetadataProp)) && (ok || !reflect.DeepEqual(v, dynamicGroupMetadataProp)) {
+		obj["dynamicGroupMetadata"] = dynamicGroupMetadataProp
+	}
 
 	return obj, nil
 }
@@ -137,4 +143,101 @@ func expandCloudIdentityGroupLabels(v interface{}, d TerraformResourceData, conf
 		m[k] = val.(string)
 	}
 	return m, nil
+}
+
+func expandCloudIdentityGroupDynamicGroupMetadata(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	l := v.([]interface{})
+	if len(l) == 0 || l[0] == nil {
+		return nil, nil
+	}
+	raw := l[0]
+	original := raw.(map[string]interface{})
+	transformed := make(map[string]interface{})
+
+	transformedQueries, err := expandCloudIdentityGroupDynamicGroupMetadataQueries(original["queries"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedQueries); val.IsValid() && !isEmptyValue(val) {
+		transformed["queries"] = transformedQueries
+	}
+
+	transformedStatus, err := expandCloudIdentityGroupDynamicGroupMetadataStatus(original["status"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedStatus); val.IsValid() && !isEmptyValue(val) {
+		transformed["status"] = transformedStatus
+	}
+
+	return transformed, nil
+}
+
+func expandCloudIdentityGroupDynamicGroupMetadataQueries(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	l := v.([]interface{})
+	req := make([]interface{}, 0, len(l))
+	for _, raw := range l {
+		if raw == nil {
+			continue
+		}
+		original := raw.(map[string]interface{})
+		transformed := make(map[string]interface{})
+
+		transformedResourceType, err := expandCloudIdentityGroupDynamicGroupMetadataQueriesResourceType(original["resource_type"], d, config)
+		if err != nil {
+			return nil, err
+		} else if val := reflect.ValueOf(transformedResourceType); val.IsValid() && !isEmptyValue(val) {
+			transformed["resourceType"] = transformedResourceType
+		}
+
+		transformedQuery, err := expandCloudIdentityGroupDynamicGroupMetadataQueriesQuery(original["query"], d, config)
+		if err != nil {
+			return nil, err
+		} else if val := reflect.ValueOf(transformedQuery); val.IsValid() && !isEmptyValue(val) {
+			transformed["query"] = transformedQuery
+		}
+
+		req = append(req, transformed)
+	}
+	return req, nil
+}
+
+func expandCloudIdentityGroupDynamicGroupMetadataQueriesResourceType(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandCloudIdentityGroupDynamicGroupMetadataQueriesQuery(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandCloudIdentityGroupDynamicGroupMetadataStatus(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	l := v.([]interface{})
+	if len(l) == 0 || l[0] == nil {
+		return nil, nil
+	}
+	raw := l[0]
+	original := raw.(map[string]interface{})
+	transformed := make(map[string]interface{})
+
+	transformedStatus, err := expandCloudIdentityGroupDynamicGroupMetadataStatusStatus(original["status"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedStatus); val.IsValid() && !isEmptyValue(val) {
+		transformed["status"] = transformedStatus
+	}
+
+	transformedStatusTime, err := expandCloudIdentityGroupDynamicGroupMetadataStatusStatusTime(original["status_time"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedStatusTime); val.IsValid() && !isEmptyValue(val) {
+		transformed["statusTime"] = transformedStatusTime
+	}
+
+	return transformed, nil
+}
+
+func expandCloudIdentityGroupDynamicGroupMetadataStatusStatus(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandCloudIdentityGroupDynamicGroupMetadataStatusStatusTime(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
 }

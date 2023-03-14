@@ -48,6 +48,18 @@ func GetVertexAIEndpointCaiObject(d TerraformResourceData, config *Config) ([]As
 
 func GetVertexAIEndpointApiObject(d TerraformResourceData, config *Config) (map[string]interface{}, error) {
 	obj := make(map[string]interface{})
+	coveredFieldProp, err := expandVertexAIEndpointCoveredField(d.Get("covered_field"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("covered_field"); !isEmptyValue(reflect.ValueOf(coveredFieldProp)) && (ok || !reflect.DeepEqual(v, coveredFieldProp)) {
+		obj["coveredField"] = coveredFieldProp
+	}
+	uncoveredFieldProp, err := expandVertexAIEndpointUncoveredField(d.Get("uncovered_field"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("uncovered_field"); !isEmptyValue(reflect.ValueOf(uncoveredFieldProp)) && (ok || !reflect.DeepEqual(v, uncoveredFieldProp)) {
+		obj["uncoveredField"] = uncoveredFieldProp
+	}
 	displayNameProp, err := expandVertexAIEndpointDisplayName(d.Get("display_name"), d, config)
 	if err != nil {
 		return nil, err
@@ -80,6 +92,14 @@ func GetVertexAIEndpointApiObject(d TerraformResourceData, config *Config) (map[
 	}
 
 	return obj, nil
+}
+
+func expandVertexAIEndpointCoveredField(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandVertexAIEndpointUncoveredField(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
 }
 
 func expandVertexAIEndpointDisplayName(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {

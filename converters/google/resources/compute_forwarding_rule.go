@@ -316,6 +316,13 @@ func expandComputeForwardingRuleServiceDirectoryRegistrations(v interface{}, d T
 			transformed["service"] = transformedService
 		}
 
+		transformedServiceDirectoryRegion, err := expandComputeForwardingRuleServiceDirectoryRegistrationsServiceDirectoryRegion(original["service_directory_region"], d, config)
+		if err != nil {
+			return nil, err
+		} else if val := reflect.ValueOf(transformedServiceDirectoryRegion); val.IsValid() && !isEmptyValue(val) {
+			transformed["serviceDirectoryRegion"] = transformedServiceDirectoryRegion
+		}
+
 		req = append(req, transformed)
 	}
 	return req, nil
@@ -326,6 +333,10 @@ func expandComputeForwardingRuleServiceDirectoryRegistrationsNamespace(v interfa
 }
 
 func expandComputeForwardingRuleServiceDirectoryRegistrationsService(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandComputeForwardingRuleServiceDirectoryRegistrationsServiceDirectoryRegion(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }
 

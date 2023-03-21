@@ -14,7 +14,10 @@
 
 package google
 
-import "reflect"
+import (
+	"fmt"
+	"reflect"
+)
 
 const ArtifactRegistryRepositoryAssetType string = "artifactregistry.googleapis.com/Repository"
 
@@ -79,6 +82,20 @@ func GetArtifactRegistryRepositoryApiObject(d TerraformResourceData, config *Con
 		obj["mavenConfig"] = mavenConfigProp
 	}
 
+	return resourceArtifactRegistryRepositoryEncoder(d, config, obj)
+}
+
+func resourceArtifactRegistryRepositoryEncoder(d TerraformResourceData, meta interface{}, obj map[string]interface{}) (map[string]interface{}, error) {
+	config := meta.(*Config)
+	if _, ok := d.GetOk("location"); !ok {
+		location, err := getRegionFromSchema("region", "zone", d, config)
+		if err != nil {
+			return nil, fmt.Errorf("Cannot determine location: set in this resource, or set provider-level 'region' or 'zone'.")
+		}
+		if err := d.Set("location", location); err != nil {
+			return nil, fmt.Errorf("Error setting location: %s", err)
+		}
+	}
 	return obj, nil
 }
 

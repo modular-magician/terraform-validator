@@ -97,6 +97,12 @@ func GetAccessApprovalFolderSettingsApiObject(d TerraformResourceData, config *C
 	} else if v, ok := d.GetOkExists("active_key_version"); !isEmptyValue(reflect.ValueOf(activeKeyVersionProp)) && (ok || !reflect.DeepEqual(v, activeKeyVersionProp)) {
 		obj["activeKeyVersion"] = activeKeyVersionProp
 	}
+	invalidKeyVersionProp, err := expandAccessApprovalFolderSettingsInvalidKeyVersion(d.Get("invalid_key_version"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("invalid_key_version"); !isEmptyValue(reflect.ValueOf(invalidKeyVersionProp)) && (ok || !reflect.DeepEqual(v, invalidKeyVersionProp)) {
+		obj["invalidKeyVersion"] = invalidKeyVersionProp
+	}
 
 	return obj, nil
 }
@@ -145,5 +151,9 @@ func expandAccessApprovalFolderSettingsEnrolledServicesEnrollmentLevel(v interfa
 }
 
 func expandAccessApprovalFolderSettingsActiveKeyVersion(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandAccessApprovalFolderSettingsInvalidKeyVersion(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }

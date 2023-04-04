@@ -15,7 +15,6 @@ replace (
 )
 
 require (
-	cloud.google.com/go/alloydb v0.2.0
 	cloud.google.com/go/bigtable v1.17.0
 	github.com/GoogleCloudPlatform/config-validator v0.0.0-20230328162739-ff3a6b2846d9
 	github.com/apparentlymart/go-cidr v1.1.0
@@ -201,3 +200,5 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
+
+replace github.com/hashicorp/terraform-provider-google => github.com/modular-magician/terraform-provider-google v1.20.1-0.20230404232058-9ea8015d22f3

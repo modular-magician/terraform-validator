@@ -152,6 +152,12 @@ func GetBigQueryDatasetApiObject(d TerraformResourceData, config *Config) (map[s
 	} else if v, ok := d.GetOkExists("default_collation"); !isEmptyValue(reflect.ValueOf(defaultCollationProp)) && (ok || !reflect.DeepEqual(v, defaultCollationProp)) {
 		obj["defaultCollation"] = defaultCollationProp
 	}
+	storageBillingModelProp, err := expandBigQueryDatasetStorageBillingModel(d.Get("storage_billing_model"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("storage_billing_model"); !isEmptyValue(reflect.ValueOf(storageBillingModelProp)) && (ok || !reflect.DeepEqual(v, storageBillingModelProp)) {
+		obj["storageBillingModel"] = storageBillingModelProp
+	}
 
 	return obj, nil
 }
@@ -481,5 +487,9 @@ func expandBigQueryDatasetIsCaseInsensitive(v interface{}, d TerraformResourceDa
 }
 
 func expandBigQueryDatasetDefaultCollation(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandBigQueryDatasetStorageBillingModel(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }

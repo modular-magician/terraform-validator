@@ -44,7 +44,6 @@ require (
 	bitbucket.org/creachadair/stringset v0.0.8 // indirect
 	cloud.google.com/go v0.110.0 // indirect
 	cloud.google.com/go/accesscontextmanager v1.6.0 // indirect
-	cloud.google.com/go/alloydb v0.2.0 // indirect
 	cloud.google.com/go/asset v1.11.1 // indirect
 	cloud.google.com/go/compute v1.18.0 // indirect
 	cloud.google.com/go/compute/metadata v0.2.3 // indirect
@@ -201,3 +200,5 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
+
+replace github.com/hashicorp/terraform-provider-google => github.com/modular-magician/terraform-provider-google v1.20.1-0.20230405161950-e25ffd93f9af

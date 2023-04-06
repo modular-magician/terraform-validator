@@ -90,6 +90,15 @@ func GetComputeResourcePolicyApiObject(d TerraformResourceData, config *Config) 
 		obj["region"] = regionProp
 	}
 
+	return resourceComputeResourcePolicyEncoder(d, config, obj)
+}
+
+func resourceComputeResourcePolicyEncoder(d TerraformResourceData, meta interface{}, obj map[string]interface{}) (map[string]interface{}, error) {
+	if diskConsistencyGroupPolicy, ok := obj["diskConsistencyGroupPolicy"]; ok {
+		if diskConsistencyGroupPolicy == nil {
+			delete(obj, "diskConsistencyGroupPolicy")
+		}
+	}
 	return obj, nil
 }
 

@@ -96,6 +96,12 @@ func GetBigqueryConnectionConnectionApiObject(d TerraformResourceData, config *C
 	} else if v, ok := d.GetOkExists("cloud_resource"); ok || !reflect.DeepEqual(v, cloudResourceProp) {
 		obj["cloudResource"] = cloudResourceProp
 	}
+	sparkProp, err := expandBigqueryConnectionConnectionSpark(d.Get("spark"), d, config)
+	if err != nil {
+		return nil, err
+	} else if v, ok := d.GetOkExists("spark"); ok || !reflect.DeepEqual(v, sparkProp) {
+		obj["spark"] = sparkProp
+	}
 
 	return resourceBigqueryConnectionConnectionEncoder(d, config, obj)
 }
@@ -422,5 +428,88 @@ func expandBigqueryConnectionConnectionCloudResource(v interface{}, d TerraformR
 }
 
 func expandBigqueryConnectionConnectionCloudResourceServiceAccountId(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandBigqueryConnectionConnectionSpark(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	l := v.([]interface{})
+	if len(l) == 0 || l[0] == nil {
+		return nil, nil
+	}
+	raw := l[0]
+	original := raw.(map[string]interface{})
+	transformed := make(map[string]interface{})
+
+	transformedServiceAccountId, err := expandBigqueryConnectionConnectionSparkServiceAccountId(original["service_account_id"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedServiceAccountId); val.IsValid() && !isEmptyValue(val) {
+		transformed["serviceAccountId"] = transformedServiceAccountId
+	}
+
+	transformedMetastoreServiceConfig, err := expandBigqueryConnectionConnectionSparkMetastoreServiceConfig(original["metastore_service_config"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedMetastoreServiceConfig); val.IsValid() && !isEmptyValue(val) {
+		transformed["metastoreServiceConfig"] = transformedMetastoreServiceConfig
+	}
+
+	transformedSparkHistoryServerConfig, err := expandBigqueryConnectionConnectionSparkSparkHistoryServerConfig(original["spark_history_server_config"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedSparkHistoryServerConfig); val.IsValid() && !isEmptyValue(val) {
+		transformed["sparkHistoryServerConfig"] = transformedSparkHistoryServerConfig
+	}
+
+	return transformed, nil
+}
+
+func expandBigqueryConnectionConnectionSparkServiceAccountId(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandBigqueryConnectionConnectionSparkMetastoreServiceConfig(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	l := v.([]interface{})
+	if len(l) == 0 || l[0] == nil {
+		return nil, nil
+	}
+	raw := l[0]
+	original := raw.(map[string]interface{})
+	transformed := make(map[string]interface{})
+
+	transformedMetastoreService, err := expandBigqueryConnectionConnectionSparkMetastoreServiceConfigMetastoreService(original["metastore_service"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedMetastoreService); val.IsValid() && !isEmptyValue(val) {
+		transformed["metastoreService"] = transformedMetastoreService
+	}
+
+	return transformed, nil
+}
+
+func expandBigqueryConnectionConnectionSparkMetastoreServiceConfigMetastoreService(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	return v, nil
+}
+
+func expandBigqueryConnectionConnectionSparkSparkHistoryServerConfig(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
+	l := v.([]interface{})
+	if len(l) == 0 || l[0] == nil {
+		return nil, nil
+	}
+	raw := l[0]
+	original := raw.(map[string]interface{})
+	transformed := make(map[string]interface{})
+
+	transformedDataprocCluster, err := expandBigqueryConnectionConnectionSparkSparkHistoryServerConfigDataprocCluster(original["dataproc_cluster"], d, config)
+	if err != nil {
+		return nil, err
+	} else if val := reflect.ValueOf(transformedDataprocCluster); val.IsValid() && !isEmptyValue(val) {
+		transformed["dataprocCluster"] = transformedDataprocCluster
+	}
+
+	return transformed, nil
+}
+
+func expandBigqueryConnectionConnectionSparkSparkHistoryServerConfigDataprocCluster(v interface{}, d TerraformResourceData, config *Config) (interface{}, error) {
 	return v, nil
 }

@@ -97,6 +97,44 @@ func GetComputeBackendBucketApiObject(d TerraformResourceData, config *Config) (
 		obj["name"] = nameProp
 	}
 
+	return resourceComputeBackendBucketEncoder(d, config, obj)
+}
+
+func resourceComputeBackendBucketEncoder(d TerraformResourceData, meta interface{}, obj map[string]interface{}) (map[string]interface{}, error) {
+	c, cdnPolicyOk := d.GetOk("cdn_policy")
+
+	if !cdnPolicyOk {
+		return obj, nil
+	}
+
+	cdnPolicies := c.([]interface{})
+
+	if len(cdnPolicies) == 0 {
+		return obj, nil
+	}
+
+	cdnPolicy := cdnPolicies[0].(map[string]interface{})
+
+	cacheMode := cdnPolicy["cache_mode"].(string)
+	_, defaultTTLOk := cdnPolicy["default_ttl"]
+	_, clientTTLOk := cdnPolicy["client_ttl"]
+
+	if obj["cdnPolicy"] == nil {
+		obj["cdnPolicy"] = make(map[string]interface{})
+	}
+
+	encCDNPolicy := obj["cdnPolicy"].(map[string]interface{})
+
+	switch cacheMode {
+	case "USE_ORIGIN_HEADERS":
+		if _, ok := encCDNPolicy["defaultTtl"]; ok && defaultTTLOk {
+			delete(encCDNPolicy, "defaultTtl")
+		}
+		if _, ok := encCDNPolicy["clientTtl"]; ok && clientTTLOk {
+			delete(encCDNPolicy, "clientTtl")
+		}
+	}
+
 	return obj, nil
 }
 

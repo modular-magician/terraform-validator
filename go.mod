@@ -52,7 +52,7 @@ require (
 	cloud.google.com/go/orgpolicy v1.10.0 // indirect
 	cloud.google.com/go/osconfig v1.11.0 // indirect
 	cloud.google.com/go/storage v1.28.1 // indirect
-	github.com/GoogleCloudPlatform/declarative-resource-client-library v1.34.0 // indirect
+	github.com/GoogleCloudPlatform/declarative-resource-client-library v1.37.0 // indirect
 	github.com/OneOfOne/xxhash v1.2.8 // indirect
 	github.com/agext/levenshtein v1.2.2 // indirect
 	github.com/agnivade/levenshtein v1.1.1 // indirect
@@ -200,3 +200,5 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
+
+replace github.com/hashicorp/terraform-provider-google => github.com/modular-magician/terraform-provider-google v1.20.1-0.20230411163235-e709875b05a2
